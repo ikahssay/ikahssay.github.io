@@ -1,0 +1,299 @@
+/* Theme variables: tweak these to change the whole look */
+:root{
+  --bg: #f6fbff;                      /* page background */
+  --text: #0f172a;                    /* main text color */
+  --muted: rgba(15, 23, 42, 0.72);    /* secondary text */
+
+  --glass: rgba(186, 220, 255, 0.45); /* pastel blue translucency */
+  --glass2: rgba(186, 220, 255, 0.65);/* stronger hover translucency */
+
+  --border: rgba(15, 23, 42, 0.12);   /* subtle borders */
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.10); /* soft shadow */
+
+  --maxw: 1120px;                     /* overall website width (increase if desired) */
+  --pad: 22px;                        /* side padding */
+  --radius: 18px;                     /* card rounding */
+}
+
+/* Make sizing predictable */
+*{ box-sizing:border-box; }
+
+/* Smooth anchor scrolling */
+html{ scroll-behavior:smooth; }
+
+/* Global page styles */
+body{
+  margin:0;                           /* remove default margins */
+  font-family:'Montserrat', sans-serif;/* typography */
+  color: var(--text);                 /* main text */
+  line-height:1.6;                    /* readable spacing */
+
+  /* Soft pastel gradient background to avoid “report” vibes */
+  background:
+    radial-gradient(900px 500px at 20% 0%, rgba(125, 211, 252, 0.35), transparent 60%),
+    radial-gradient(900px 500px at 85% 0%, rgba(147, 197, 253, 0.35), transparent 60%),
+    radial-gradient(900px 500px at 50% 110%, rgba(186, 230, 253, 0.45), transparent 60%),
+    var(--bg);
+}
+
+/* Link styling */
+a{ color:inherit; text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+/* Standard centered container used everywhere */
+.container{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+/* Sticky header bar */
+.site-header{
+  position: sticky;                   /* stays at top while scrolling */
+  top: 0;
+  z-index: 50;                        /* sits above content */
+  background: rgba(246, 251, 255, 0.75); /* translucent header */
+  backdrop-filter: blur(10px);        /* glassy blur */
+  border-bottom: 1px solid var(--border);
+}
+
+/* Header layout */
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+  padding: 14px 0;
+}
+
+/* Brand styling */
+.brand{
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* Navigation links layout */
+.navlinks{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;                    /* wraps on small screens */
+  align-items:center;
+  justify-content:flex-end;
+}
+
+/* Navigation link styling */
+.navlinks a{
+  padding: 8px 10px;
+  border-radius: 999px;               /* pill shape */
+  opacity: 0.9;
+}
+
+/* Hover effect to feel “website-y” */
+.navlinks a:hover{
+  background: rgba(186, 220, 255, 0.35);
+  text-decoration:none;
+}
+
+/* Button styling */
+.btn{
+  border: 1px solid var(--border);
+  background: rgba(186, 220, 255, 0.40);
+  padding: 8px 12px;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+}
+
+/* Button hover */
+.btn:hover{
+  background: rgba(186, 220, 255, 0.55);
+  text-decoration:none;
+}
+
+/* Smaller button variant (used in project cards) */
+.btn.small{ padding: 6px 10px; font-size: 0.95rem; }
+
+/* Hero section spacing */
+.hero{ padding: 70px 0 40px; }
+
+/* Hero two-column grid */
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1.2fr 0.8fr; /* left wider than right */
+  gap: 16px;
+  align-items:start;
+}
+
+/* Small uppercase label text */
+.kicker{
+  margin:0 0 10px;
+  color: rgba(15,23,42,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+}
+
+/* Main hero headline */
+h1{
+  margin: 0 0 12px;
+  font-size: 44px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+/* Hero paragraph */
+.sub{
+  margin:0 0 16px;
+  color: var(--muted);
+  max-width: 70ch;
+  font-weight: 500;
+}
+
+/* Pill links row */
+.pills{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+/* Individual pill style */
+.pill{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.65);
+  padding: 10px 12px;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(15,23,42,0.06);
+}
+
+/* Pill hover */
+.pill:hover{
+  background: rgba(186, 220, 255, 0.45);
+  text-decoration:none;
+}
+
+/* Skill chips row */
+.tech-row{ display:flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+
+/* Individual chip style */
+.tag{
+  font-size: 0.9rem;
+  color: rgba(15,23,42,0.70);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.7);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+/* General section spacing */
+.section{ padding: 70px 0; }
+
+/* Section header typography */
+.section-head h2{
+  margin: 0 0 6px;
+  font-size: 38px;
+  letter-spacing: -0.3px;
+}
+
+/* Anchor spacer so titles aren't hidden behind sticky header */
+.hash-span{
+  display:block;
+  height: 90px;
+  margin-top: -90px;
+  visibility:hidden;
+}
+
+/* Panel (used for summary boxes) */
+.panel{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.70);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* Remove top margin from panel headings */
+.panel h3{ margin-top:0; }
+
+/* Two-column layout used in About and Contact */
+.split{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+/* 12-column grid container used for cards */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  margin-top: 18px;
+}
+
+/* Card styling (each card spans 6 columns on desktop) */
+.card{
+  grid-column: span 6;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.70);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* Card title spacing */
+.card h3{ margin: 0 0 10px; }
+
+/* Bulleted list indent */
+.card ul{ margin: 0 0 10px; padding-left: 18px; }
+
+/* Muted text helper */
+.muted{ color: var(--muted); }
+
+/* Project card header row (title left, buttons right) */
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  gap: 12px;
+  align-items:flex-start;
+}
+
+/* Project button container */
+.card-links{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content:flex-end;
+}
+
+/* Inline code tag style */
+.code{
+  font-family:'Source Code Pro', monospace;
+  font-size: 0.95em;
+  background: rgba(125, 211, 252, 0.20);
+  border: 1px solid rgba(125, 211, 252, 0.45);
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+
+/* Footer styling */
+.footer{
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  color: rgba(15,23,42,0.65);
+}
+
+/* Footer layout */
+.footer-row{
+  display:flex;
+  justify-content:space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 900px){
+  h1{ font-size: 36px; }              /* shrink headline on mobile */
+  .hero-grid{ grid-template-columns: 1fr; } /* stack hero columns */
+  .split{ grid-template-columns: 1fr; }     /* stack split sections */
+  .card{ grid-column: span 12; }           /* cards go full width */
+}

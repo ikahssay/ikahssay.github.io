@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Character encoding -->
+  <meta charset="UTF-8" />
+  <!-- Compatibility for older IE (harmless to keep) -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Makes layout responsive on mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Browser tab title -->
+  <title>Iman Kahssay · Software Engineer</title>
+
+  <!-- Improve Google Fonts loading performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Improve Google Fonts loading performance -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Typography (keeps the Montserrat + code font vibe) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+  <!-- Site-wide stylesheet -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body>
+  <!-- Sticky header / navigation -->
+  <header class="site-header">
+    <!-- Centered, wide container for header content -->
+    <div class="container nav">
+      <!-- Brand link scrolls to top of the page -->
+      <a class="brand" href="#top">Iman Kahssay</a>
+
+      <!-- Navigation links jump to sections on the same page -->
+      <nav class="navlinks" aria-label="Primary">
+        <!-- Scroll-to anchors -->
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <!-- Resume button in the nav (make sure this filename matches your repo) -->
+        <a class="btn" href="/SWE_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content wrapper (top anchor target) -->
+  <main id="top">
+    <!-- HERO section -->
+    <section class="hero">
+      <!-- Hero grid: left intro + right highlights -->
+      <div class="container hero-grid">
+        <div>
+          <!-- Small label above the main title -->
+          <p class="kicker">Software Engineer</p>
+
+          <!-- Main headline -->
+          <h1>Software Engineer focused on building reliable, thoughtful systems</h1>
+
+          <!-- Sub-headline (degrees) -->
+          <p class="sub">M.S. Computer Science, UC Davis · B.S. EECS, UC Berkeley</p>
+
+          <!-- Quick links "pills" -->
+          <div class="pills">
+            <!-- GitHub link -->
+            <a class="pill" href="https://github.com/ikahssay/Portfolio" target="_blank" rel="noopener">GitHub</a>
+            <!-- LinkedIn link -->
+            <a class="pill" href="https://www.linkedin.com/in/iman-kahssay" target="_blank" rel="noopener">LinkedIn</a>
+            <!-- Email link -->
+            <a class="pill" href="mailto:iakahssay@ucdavis.edu">Email</a>
+            <!-- Resume link (in GitHub repo root) -->
+            <a class="pill" href="/SWE_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+          </div>
+
+          <!-- Languages chips (resume-aligned) -->
+          <p class="muted" style="margin: 14px 0 6px;"><b>Languages</b></p>
+          <div class="tech-row">
+            <span class="tag">Python</span>
+            <span class="tag">C/C++</span>
+            <span class="tag">Java</span>
+            <span class="tag">Kotlin</span>
+            <span class="tag">Go</span>
+            <span class="tag">SQL</span>
+            <span class="tag">HTML</span>
+            <span class="tag">XML</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Processing</span>
+            <span class="tag">Scheme</span>
+          </div>
+
+          <!-- Tools/technologies chips (resume-aligned) -->
+          <p class="muted" style="margin: 16px 0 6px;"><b>Tools &amp; Technologies</b></p>
+          <div class="tech-row">
+            <span class="tag">Git</span>
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">PyTorch/Torchvision</span>
+            <span class="tag">Postman</span>
+            <span class="tag">Android Studio</span>
+            <span class="tag">Figma</span>
+          </div>
+        </div>
+
+        <!-- Right-side highlight panel (high-signal resume bullets) -->
+        <aside class="panel">
+          <h3>Quick highlights</h3>
+          <ul>
+            <li>Built a Kotlin/XML Android companion app for real-time biomarker detection (80% accuracy)</li>
+            <li>Led women-centered case studies (21 participants) and improved device usability by 20%</li>
+            <li>Supported 150+ students; resolved 95% of technical issues; graded 1000+ assignments/quizzes</li>
+            <li>Built Flask + MongoDB REST APIs and tested end-to-end in Postman</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ABOUT anchor spacer (keeps section title visible under sticky header) -->
+    <span class="hash-span" id="about"></span>
+    <!-- ABOUT section -->
+    <section class="section">
+      <div class="container">
+        <!-- Section heading -->
+        <div class="section-head">
+          <p class="kicker">Introduction</p>
+          <h2>About.</h2>
+        </div>
+
+        <!-- Two-column layout: about narrative + skills summary -->
+        <div class="split">
+          <!-- About narrative (your provided text) -->
+          <div class="panel">
+            <p>
+              I’m a Software Engineer currently pursuing an M.S. in Computer Science at UC Davis, with a foundation in Electrical Engineering and
+              Computer Science from UC Berkeley. My experience centers on data structures, algorithms, system-level problem solving, applied AI,
+              and computer graphics, with an emphasis on building well-structured, reliable software.
+            </p>
+
+            <p>
+              I primarily work with Python, C++, and Java, and I also have experience building user-facing components with HTML, XML, and JavaScript.
+              While my focus is software engineering, I value clarity, correctness, and user awareness as part of designing systems that behave
+              predictably and scale thoughtfully.
+            </p>
+
+            <p class="muted">
+              I enjoy debugging complex logic, reasoning through tradeoffs, and refining implementations through testing, iteration, and collaboration.
+              I’m motivated by building software that is technically sound, purposeful, and capable of making a real-world impact.
+            </p>
+          </div>
+
+          <!-- Skills summary (quick scan for recruiters) -->
+          <div class="panel">
+            <h3>Skills</h3>
+            <p class="muted"><b>Languages:</b> Python, Java, C/C++, Kotlin, Go, SQL, HTML, XML, JavaScript, Processing, Scheme</p>
+            <p class="muted"><b>Technologies/Tools:</b> Git, React, Node.js, MongoDB, NumPy, PyTorch/Torchvision, Postman, Android Studio, Figma</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE anchor spacer -->
+    <span class="hash-span" id="experience"></span>
+    <!-- EXPERIENCE section -->
+    <section class="section">
+      <div class="container">
+        <!-- Section heading -->
+        <div class="section-head">
+          <p class="kicker">What I’ve done</p>
+          <h2>Experience.</h2>
+        </div>
+
+        <!-- Experience cards grid -->
+        <div class="grid">
+          <!-- Researcher experience -->
+          <article class="card">
+            <h3>Researcher · Interactive Organisms Lab (UC Davis)</h3>
+            <p class="muted">Microfluidic biosensing + Android companion app integration.</p>
+            <ul>
+              <li>Designed a microfluidic device with colorimetric biosensors (Fusion 360, FormLabs)</li>
+              <li>Developed a companion Android app (Kotlin + XML) for real-time detection (80% accuracy)</li>
+              <li>Led women-centered case studies (21 participants), improving 3D-printed device usability by 20%</li>
+            </ul>
+          </article>
+
+          <!-- TA experience -->
+          <article class="card">
+            <h3>Teaching Assistant · UC Davis</h3>
+            <p class="muted">Debugging support, course operations, and lab logistics.</p>
+            <ul>
+              <li>Supported 150+ students across 4+ courses and 45+ office hours; resolved 95% of technical/programming issues</li>
+              <li>Managed attendance, exams, and grading for 1000+ assignments and quizzes</li>
+              <li>Assisted with Processing, Python, Arduino/Circuit Playground, and fabrication lab setups</li>
+            </ul>
+          </article>
+
+          <!-- Technical Account Analyst experience -->
+          <article class="card">
+            <h3>Technical Account Analyst · Zain Psychological &amp; Behavioral Health Services</h3>
+            <p class="muted">Backend APIs + testing for internal workflows.</p>
+            <ul>
+              <li>Built scalable RESTful APIs using Flask + MongoDB for accounting workflows and UI integration</li>
+              <li>Executed end-to-end testing in Postman, improving user flow by 23% and page speed by 19%</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS anchor spacer -->
+    <span class="hash-span" id="projects"></span>
+    <!-- PROJECTS section -->
+    <section class="section">
+      <div class="container">
+        <!-- Section heading -->
+        <div class="section-head">
+          <p class="kicker">My work</p>
+          <h2>Projects.</h2>
+        </div>
+
+        <!-- Projects cards grid -->
+        <div class="grid">
+          <!-- FitBot project -->
+          <article class="card">
+            <div class="card-top">
+              <h3>FitBot — Fitness Analytics Web App</h3>
+              <div class="card-links">
+                <!-- PLACEHOLDER: replace with your FitBot repo URL -->
+                <a class="btn small" href="PASTE_FITBOT_REPO" target="_blank" rel="noopener">Repo</a>
+                <!-- PLACEHOLDER: replace with your FitBot demo URL OR delete this button -->
+                <a class="btn small" href="PASTE_FITBOT_DEMO" target="_blank" rel="noopener">Demo</a>
+              </div>
+            </div>
+            <p class="muted">MERN app that computes and visualizes calories burned and goal progress.</p>
+            <ul>
+              <li>Built a personalized analytics app in a 3-person team; improved clarity by 45% and engagement by 52%</li>
+              <li>Engineered scalable MERN architecture for real-time updates, computation, and interactive visualizations</li>
+              <li>Implemented calorie-burn algorithms using 6+ variables across 10K+ activity records; improved insight accuracy by 35%</li>
+            </ul>
+            <p class="muted">
+              <span class="code">React</span>
+              <span class="code">Node</span>
+              <span class="code">Express</span>
+              <span class="code">MongoDB</span>
+              <span class="code">Python</span>
+            </p>
+          </article>
+
+          <!-- BugSwarm project -->
+          <article class="card">
+            <div class="card-top">
+              <h3>BugSwarm — Automated Bug Reporter</h3>
+              <div class="card-links">
+                <!-- PLACEHOLDER: replace with your BugSwarm repo URL -->
+                <a class="btn small" href="PASTE_BUGSWARM_REPO" target="_blank" rel="noopener">Repo</a>
+              </div>
+            </div>
+            <p class="muted">Python pipeline that turns CI failure artifacts into structured bug reports.</p>
+            <ul>
+              <li>Reduced manual bug documentation effort by ~70% by generating human-readable reports from CI artifacts</li>
+              <li>Integrated BugSwarm + Travis CI via REST APIs; added log sanitization and diff summarization</li>
+              <li>Integrated an LLM (Google Gemini) for root-cause analysis and fix suggestions; generated 100/100 reports with 0 runtime errors</li>
+            </ul>
+            <p class="muted">
+              <span class="code">Python</span>
+              <span class="code">REST APIs</span>
+              <span class="code">CI</span>
+              <span class="code">LLM</span>
+            </p>
+          </article>
+
+          <!-- Cloth simulation project -->
+          <article class="card">
+            <div class="card-top">
+              <h3>Cloth Simulation with Realistic Rendering</h3>
+              <div class="card-links">
+                <!-- PLACEHOLDER: replace with your cloth sim repo URL (or remove if private) -->
+                <a class="btn small" href="PASTE_CLOTHSIM_REPO" target="_blank" rel="noopener">Repo</a>
+              </div>
+            </div>
+            <p class="muted">Interactive cloth simulation with physics constraints and shader-based rendering.</p>
+            <ul>
+              <li>Implemented point-mass + spring system with numerical integration and collision handling; reduced cloth clipping by 90%</li>
+              <li>Wrote GLSL shaders to improve visual/texture quality by 85%; researched and implemented textile shading models</li>
+            </ul>
+            <p class="muted">
+              <span class="code">C++</span>
+              <span class="code">OpenGL</span>
+              <span class="code">GLSL</span>
+            </p>
+          </article>
+
+          <!-- Grammys app project -->
+          <article class="card">
+            <div class="card-top">
+              <h3>Grammys Winner Prediction — Android App</h3>
+              <div class="card-links">
+                <!-- PLACEHOLDER: replace with your Grammys app repo URL -->
+                <a class="btn small" href="PASTE_GRAMMYS_REPO" target="_blank" rel="noopener">Repo</a>
+              </div>
+            </div>
+            <p class="muted">Android app for selecting, sharing, and discussing Grammy winner predictions.</p>
+            <ul>
+              <li>Led a 4-person team; implemented core app logic and UI components using Java + XML</li>
+              <li>Tested and debugged workflows via unit tests and manual validation; improved user flow by 51% and page speed by 43%</li>
+            </ul>
+            <p class="muted">
+              <span class="code">Java</span>
+              <span class="code">Android SDK</span>
+              <span class="code">XML</span>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT anchor spacer -->
+    <span class="hash-span" id="contact"></span>
+    <!-- CONTACT section -->
+    <section class="section">
+      <div class="container">
+        <!-- Section heading -->
+        <div class="section-head">
+          <p class="kicker">Get in touch</p>
+          <h2>Contact.</h2>
+        </div>
+
+        <!-- Contact split layout -->
+        <div class="split">
+          <!-- Contact links -->
+          <div class="panel">
+            <p>Best way to reach me is email. I’m open to SWE roles and full-stack work.</p>
+            <div class="pills">
+              <a class="pill" href="mailto:iakahssay@ucdavis.edu">iakahssay@ucdavis.edu</a>
+              <a class="pill" href="https://www.linkedin.com/in/iman-kahssay" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="pill" href="https://github.com/ikahssay/Portfolio" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+
+          <!-- Simple recruiter notes panel (optional) -->
+          <div class="panel">
+            <h3>Recruiter notes</h3>
+            <p class="muted">Currently in California (UC Davis) · Open to SWE internships / new grad roles anywhere (ideally anywhere in CA or in Seattle, WA)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-row">
+        <span>© <span id="year"></span> Iman Kahssay</span>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Auto-set the current year in the footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
