@@ -190,7 +190,7 @@ h1{
   font-size: 0.9rem;
   color: rgba(15,23,42,0.70);
   border: 1px solid var(--border);
-  background: rgba(194, 222, 250, 0.713);
+  background: rgba(186, 220, 255, 0.22); /* subtle pastel blue wash */
   padding: 6px 10px;
   border-radius: 999px;
 }
