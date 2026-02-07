@@ -120,6 +120,11 @@ a:hover{ text-decoration:underline; }
   display: block;
 }
 
+/* About section should be single-column, but keep .split 2-column elsewhere (like Contact) */
+.about-section .split{
+  display: block; /* stacks panels vertically */
+}
+
 /* Small uppercase label text */
 .kicker{
   margin:0 0 10px;
