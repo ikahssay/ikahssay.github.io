@@ -454,15 +454,15 @@ h1{
 }
 
 /* Mobile responsiveness */
-@media (max-width: 900px){
-  h1{ font-size: 36px; }              /* shrink headline on mobile */
+@media (max-width: 600px){
+  h1{ font-size: 36px; }                   /* shrink headline on mobile */
   .hero-grid{ grid-template-columns: 1fr; } /* stack hero columns */
   .section:not(.about-section) .split{ grid-template-columns: 1fr; }     /* stack split sections */
   .card{ grid-column: span 12; }           /* cards go full width */
 }
 
 /* Responsive: 1 column on smaller screens */
-@media (max-width: 900px){
+@media (max-width: 600px){
   .projects-grid{
     grid-template-columns: 1fr; /* single column */
   }
@@ -475,7 +475,7 @@ h1{
 }
 
 /* Stack About cards on small screens only */
-@media (max-width: 700px){
+@media (max-width: 600px){
   .about-section .split{
     grid-template-columns: 1fr;       /* stacks for mobile */
   }
@@ -486,7 +486,7 @@ h1{
 @media (max-width: 600px){
   .nav{
      flex-wrap: nowrap;     /* prevent wrapping into a second line */
-    /* align-items: center;*/
+    align-items: center;
      gap: 10px;
   }
 
