@@ -204,7 +204,7 @@ h1{
 }
 
 /* General section spacing */
-.section{ padding: 70px 0; }
+.section{ padding: 90px 0; }
 
 /* Section header typography */
 .section-head h2{
@@ -281,7 +281,7 @@ h1{
   display: grid; /* collage layout */
   grid-template-columns: 1.2fr 1fr; /* left image bigger */
   grid-template-rows: 1fr 1fr; /* right side stacked */
-  gap: 10px; /* spacing between images */
+  gap: 5px; /* spacing between images */
   padding: 14px; /* inner padding */
   background: rgba(186, 220, 255, 0.22); /* subtle pastel blue wash */
 }
@@ -289,7 +289,7 @@ h1{
 /* Screenshots inside the media area */
 .project-media img{
   width: 100%; /* fill grid cell */
-  height: 180px; /* consistent height */
+  height: 110px; /* consistent height */
   object-fit: cover; /* crop nicely */
   border-radius: 14px; /* rounded thumbnails */
   border: 1px solid rgba(15, 23, 42, 0.10); /* subtle edge */
@@ -298,8 +298,9 @@ h1{
 
 /* Make the first image big (left side spans two rows) */
 .project-media img:nth-child(1){
+  width: 100%; /* fill grid cell */
   grid-row: 1 / span 2; /* tall image */
-  height: 370px; 
+  height: 225px; 
 }
 
 /* Text body under the media area */
@@ -482,19 +483,21 @@ h1{
 
 
 /* Mobile nav: stack into a single column (no wrapping into 2 columns) */
-@media (max-width: 700px){
-  .nav,
-  .navlinks{
-    flex-wrap: nowrap;     /* prevents second row */
+@media (max-width: 900px){
+  .nav{
+     flex-wrap: nowrap;     /* prevent wrapping into a second line */
   }
 
   .navlinks{
-    gap: 10px;             /* tighter spacing so everything fits */
+    flex-wrap: nowrap;           /* prevent wrapping into a second line */
+    overflow-x: auto;            /* if it doesn’t fit, scroll horizontally */
+    -webkit-overflow-scrolling: touch; /* smooth iOS scroll */
+    gap: 10px;  /* tighter spacing so everything fits */
   }
 
   .navlinks a{
-    white-space: nowrap;   /* prevents text breaking */
-    font-size: 0.9rem;
+    white-space: nowrap;    /* never break link text */
+    font-size: 0.9rem;      /* small shrink to help fit */        
   }
 
   .navlinks .btn{
