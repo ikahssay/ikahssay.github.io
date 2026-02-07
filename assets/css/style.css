@@ -505,3 +505,12 @@ h1{
   }
 }
 
+/* Touch feedback for project cards (since phones don't hover) */
+@media (hover: none){
+  .project-card:active{
+    transform: scale(0.99);           /* subtle press */
+  }
+  .arrow-btn:active{
+    transform: scale(0.96);           /* press feedback on the arrow */
+  }
+}
