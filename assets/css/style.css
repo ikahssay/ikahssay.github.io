@@ -253,7 +253,7 @@ h1{
 .projects-grid{
   display: grid; /* grid for consistent card layout */
   grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns on desktop */
-  gap: 18px; /* spacing between cards */
+  gap: 32px; /* spacing between cards */
   margin-top: 18px; /* space above projects grid */
 }
 
@@ -324,8 +324,8 @@ h1{
   position: absolute; /* sits on top-right of the media area */
   top: 14px;
   right: 14px;
-  width: 22px;
-  height: 22px;
+  width: 33px;
+  height: 33px;
   border-radius: 999px; /* circle */
   display: grid;
   place-items: center;
@@ -391,28 +391,6 @@ h1{
   text-decoration: underline;
   opacity: 0.9;
 }
-
-
-/* Responsive: 1 column on smaller screens */
-@media (max-width: 900px){
-  .projects-grid{
-    grid-template-columns: 1fr; /* single column */
-  }
-  .project-media img:nth-child(1){
-    height: 260px; /* reduce tall image on mobile */
-  }
-  .project-media img{
-    height: 140px; /* smaller thumbs on mobile */
-  }
-}
-
-/* Stack About cards on small screens only */
-@media (max-width: 700px){
-  .about-section .split{
-    grid-template-columns: 1fr;       /* stacks for mobile */
-  }
-}
-
 
 /* Card styling (each card spans 6 columns on desktop) */
 .card{
@@ -481,3 +459,49 @@ h1{
   .section:not(.about-section) .split{ grid-template-columns: 1fr; }     /* stack split sections */
   .card{ grid-column: span 12; }           /* cards go full width */
 }
+
+/* Responsive: 1 column on smaller screens */
+@media (max-width: 900px){
+  .projects-grid{
+    grid-template-columns: 1fr; /* single column */
+  }
+  .project-media img:nth-child(1){
+    height: 260px; /* reduce tall image on mobile */
+  }
+  .project-media img{
+    height: 140px; /* smaller thumbs on mobile */
+  }
+}
+
+/* Stack About cards on small screens only */
+@media (max-width: 700px){
+  .about-section .split{
+    grid-template-columns: 1fr;       /* stacks for mobile */
+  }
+}
+
+
+/* Mobile nav: stack into a single column (no wrapping into 2 columns) */
+@media (max-width: 700px){
+  .nav{
+    flex-direction: column;     /* brand on top, links below */
+    align-items: flex-start;    /* left align */
+    gap: 10px;                  /* breathing room */
+  }
+
+  .navlinks{
+    width: 100%;                /* take full width */
+    flex-direction: column;     /* links in one column */
+    align-items: flex-start;    /* left align */
+    gap: 6px;
+  }
+
+  .navlinks a{
+    width: 100%;                /* each link is one full row */
+  }
+
+  .navlinks .btn{
+    width: auto;                /* keep resume button from stretching */
+  }
+}
+

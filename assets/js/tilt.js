@@ -10,7 +10,7 @@
   // Configuration (tuned to avoid jitter)
   const MAX_TILT_X = 7;     //7 degrees
   const MAX_TILT_Y = 9;     //9 degrees
-  const EDGE_DEADZONE = 0.15; //12 % of card near edges where tilt stops
+  const EDGE_DEADZONE = 0.12; //12 % of card near edges where tilt stops. try 15-20 if glitchy
 
   cards.forEach((card) => {
     let rafId = null; // track animation frame
