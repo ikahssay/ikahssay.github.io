@@ -120,9 +120,10 @@ a:hover{ text-decoration:underline; }
   display: block;
 }
 
-/* About section should be single-column, but keep .split 2-column elsewhere (like Contact) */
+/* About split: left 2/3, right 1/3 (Contact .split stays 1fr 1fr) */
 .about-section .split{
-  display: block; /* stacks panels vertically */
+  grid-template-columns: 2fr 1fr; /* 2/3 + 1/3 */
+  align-items: start; /* align cards at the top */
 }
 
 /* Small uppercase label text */
@@ -181,7 +182,7 @@ h1{
   font-size: 0.9rem;
   color: rgba(15,23,42,0.70);
   border: 1px solid var(--border);
-  background: rgba(255,255,255,0.7);
+  background: rgba(132, 189, 247, 0.45);
   padding: 6px 10px;
   border-radius: 999px;
 }
