@@ -115,12 +115,14 @@ a:hover{ text-decoration:underline; }
 /* Hero section spacing */
 .hero{ padding: 70px 0 40px; }
 
-/* Hero two-column grid */
+/* Hero single-column grid */
 .hero-grid{
-  display:grid;
-  grid-template-columns: 1.2fr 0.8fr; /* left wider than right */
-  gap: 16px;
-  align-items:start;
+  display: block;
+}
+
+/* About section should be single-column, but keep .split 2-column elsewhere (like Contact) */
+.about-section .split{
+  display: block; /* stacks panels vertically */
 }
 
 /* Small uppercase label text */
@@ -214,7 +216,7 @@ h1{
 /* Remove top margin from panel headings */
 .panel h3{ margin-top:0; }
 
-/* Two-column layout used in About and Contact */
+/* Two-column layout used in Contact */
 .split{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -229,6 +231,141 @@ h1{
   gap: 16px;
   margin-top: 18px;
 }
+
+/* Projects grid layout (Lucy-style cards, wide + clean) */
+.projects-grid{
+  display: grid; /* grid for consistent card layout */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns on desktop */
+  gap: 18px; /* spacing between cards */
+  margin-top: 18px; /* space above projects grid */
+}
+
+/* Project card container */
+.project-card{
+  border: 1px solid var(--border); /* consistent border */
+  background: rgba(255,255,255,0.72); /* light glass panel */
+  border-radius: var(--radius); /* rounded corners */
+  box-shadow: var(--shadow); /* soft shadow */
+  overflow: hidden; /* keeps rounded corners for media */
+}
+
+/* Media strip at the top (screenshots collage) */
+.project-media{
+  position: relative; /* anchor for arrow button */
+  display: grid; /* collage layout */
+  grid-template-columns: 1.2fr 1fr; /* left image bigger */
+  grid-template-rows: 1fr 1fr; /* right side stacked */
+  gap: 10px; /* spacing between images */
+  padding: 14px; /* inner padding */
+  background: rgba(186, 220, 255, 0.22); /* subtle pastel blue wash */
+}
+
+/* Screenshots inside the media area */
+.project-media img{
+  width: 100%; /* fill grid cell */
+  height: 180px; /* consistent height */
+  object-fit: cover; /* crop nicely */
+  border-radius: 14px; /* rounded thumbnails */
+  border: 1px solid rgba(15, 23, 42, 0.10); /* subtle edge */
+  background: rgba(255,255,255,0.9); /* fallback */
+}
+
+/* Make the first image big (left side spans two rows) */
+.project-media img:nth-child(1){
+  grid-row: 1 / span 2; /* tall image */
+  height: 370px; /* taller to match Lucy feel */
+}
+
+/* Text body under the media area */
+.project-body{
+  padding: 18px; /* comfortable reading space */
+}
+
+/* Project title */
+.project-body h3{
+  margin: 0 0 8px; /* spacing under title */
+}
+
+/* Lucy-style arrow button (blue theme) */
+.arrow-btn{
+  position: absolute; /* sits on top-right of the media area */
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px; /* circle */
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  background: rgba(186, 220, 255, 0.75); /* pastel blue (opaque-ish) */
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.10);
+}
+
+/* Arrow icon inside button */
+.arrow-btn span{
+  font-size: 20px; /* readable arrow */
+  font-weight: 700;
+  color: rgba(15, 23, 42, 0.85); /* dark text for contrast */
+}
+
+/* Hover state */
+.arrow-btn:hover{
+  background: rgba(186, 220, 255, 0.95); /* slightly stronger blue */
+  transform: translateY(-1px); /* subtle lift */
+}
+
+/* Hashtag-style tags row */
+.tag-row{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+/* Hashtags styled to match my blue scheme */
+/* Base hashtag style */
+.hash{
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Rotating soft accent colors */
+.hash:nth-child(4n + 1){
+  color: rgba(59, 130, 246, 0.85);   /* soft blue */
+}
+
+.hash:nth-child(4n + 2){
+  color: rgba(16, 185, 129, 0.85);   /* muted teal */
+}
+
+.hash:nth-child(4n + 3){
+  color: rgba(139, 92, 246, 0.85);   /* soft lavender */
+}
+
+.hash:nth-child(4n + 4){
+  color: rgba(100, 116, 139, 0.85);  /* dusty slate */
+}
+
+.hash:hover{
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+
+/* Responsive: 1 column on smaller screens */
+@media (max-width: 900px){
+  .projects-grid{
+    grid-template-columns: 1fr; /* single column */
+  }
+  .project-media img:nth-child(1){
+    height: 260px; /* reduce tall image on mobile */
+  }
+  .project-media img{
+    height: 140px; /* smaller thumbs on mobile */
+  }
+}
+
 
 /* Card styling (each card spans 6 columns on desktop) */
 .card{

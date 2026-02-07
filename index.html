@@ -64,7 +64,7 @@
     <!-- ABOUT anchor spacer (keeps section title visible under sticky header) -->
     <span class="hash-span" id="about"></span>
     <!-- ABOUT section -->
-    <section class="section">
+    <section class="about-section">
       <div class="container">
         <!-- Section heading -->
         <div class="section-head">
@@ -188,99 +188,149 @@
           <h2>Projects</h2>
         </div>
 
-        <!-- Projects cards grid -->
-        <div class="grid">
-          <!-- FitBot project -->
-          <article class="card">
-            <div class="card-top">
+                <!-- Projects cards grid (media header + arrow repo link) -->
+        <div class="projects-grid">
+          <!-- Project card: FitBot -->
+          <article class="project-card">
+            <!-- Media area (add 1–3 screenshots here) -->
+            <div class="project-media">
+              <!-- PLACEHOLDER (TODO): replace with your actual images, or remove extras -->
+              <img src="/assets/img/fitbot-1.png" alt="FitBot screenshot 1" />
+              <img src="/assets/img/fitbot-2.png" alt="FitBot screenshot 2" />
+              <img src="/assets/img/fitbot-3.png" alt="FitBot screenshot 3" />
+
+              <!-- Arrow button (goes to repo) -->
+              <!-- PLACEHOLDER (TODO): replace with FitBot repo URL -->
+              <a class="arrow-btn" href="PASTE_FITBOT_REPO" target="_blank" rel="noopener" aria-label="Open FitBot GitHub repository">
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <!-- Text content area -->
+            <div class="project-body">
+              <!-- Project title -->
               <h3>FitBot — Fitness Analytics Web App</h3>
-              <div class="card-links">
-                <!-- PLACEHOLDER: replace with your FitBot repo URL -->
-                <a class="btn small" href="PASTE_FITBOT_REPO" target="_blank" rel="noopener">Repo</a>
-                <!-- PLACEHOLDER: replace with your FitBot demo URL OR delete this button -->
-                <a class="btn small" href="PASTE_FITBOT_DEMO" target="_blank" rel="noopener">Demo</a>
+
+              <!-- Project description -->
+              <p class="muted">
+                MERN app that computes and visualizes calories burned and goal progress.
+              </p>
+
+              <!-- Project bullets -->
+              <ul>
+                <li>Engineered MERN architecture for real-time updates, computation, and interactive visualizations</li>
+                <li>Implemented calorie-burn algorithms using 6+ variables across 10K+ activity records</li>
+              </ul>
+
+              <!-- Tag chips (hashtags, but blue) -->
+              <div class="tag-row">
+                <span class="hash">#react</span>
+                <span class="hash">#node.js</span>
+                <span class="hash">#mongodb</span>
+                <span class="hash">#data-viz</span>
               </div>
             </div>
-            <p class="muted">MERN app that computes and visualizes calories burned and goal progress.</p>
-            <ul>
-              <li>Built a personalized analytics app in a 3-person team; improved clarity by 45% and engagement by 52%</li>
-              <li>Engineered scalable MERN architecture for real-time updates, computation, and interactive visualizations</li>
-              <li>Implemented calorie-burn algorithms using 6+ variables across 10K+ activity records; improved insight accuracy by 35%</li>
-            </ul>
-            <p class="muted">
-              <span class="code">React</span>
-              <span class="code">Node</span>
-              <span class="code">Express</span>
-              <span class="code">MongoDB</span>
-              <span class="code">Python</span>
-            </p>
           </article>
 
-          <!-- BugSwarm project -->
-          <article class="card">
-            <div class="card-top">
+          <!-- Project card: BugSwarm -->
+          <article class="project-card">
+            <div class="project-media">
+              <!-- PLACEHOLDER (TODO): replace with your actual images, or remove extras -->
+              <img src="/assets/img/bugswarm-1.png" alt="BugSwarm screenshot 1" />
+              <img src="/assets/img/bugswarm-2.png" alt="BugSwarm screenshot 2" />
+              <img src="/assets/img/bugswarm-3.png" alt="BugSwarm screenshot 3" />
+
+              <!-- PLACEHOLDER (TODO): replace with your BugSwarm repo URL -->
+              <a class="arrow-btn" href="PASTE_BUGSWARM_REPO" target="_blank" rel="noopener" aria-label="Open BugSwarm GitHub repository">
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <div class="project-body">
               <h3>BugSwarm — Automated Bug Reporter</h3>
-              <div class="card-links">
-                <!-- PLACEHOLDER: replace with your BugSwarm repo URL -->
-                <a class="btn small" href="PASTE_BUGSWARM_REPO" target="_blank" rel="noopener">Repo</a>
+              <p class="muted">
+                Python pipeline that turns CI failure artifacts into structured bug reports.
+              </p>
+              <ul>
+                <li>Integrated BugSwarm + Travis CI via REST APIs; added log sanitization and diff summarization</li>
+                <li>Added LLM-based root-cause analysis; generated 100/100 reports with 0 runtime errors</li>
+              </ul>
+
+              <div class="tag-row">
+                <span class="hash">#python</span>
+                <span class="hash">#ci</span>
+                <span class="hash">#rest-api</span>
+                <span class="hash">#llm</span>
               </div>
             </div>
-            <p class="muted">Python pipeline that turns CI failure artifacts into structured bug reports.</p>
-            <ul>
-              <li>Reduced manual bug documentation effort by ~70% by generating human-readable reports from CI artifacts</li>
-              <li>Integrated BugSwarm + Travis CI via REST APIs; added log sanitization and diff summarization</li>
-              <li>Integrated an LLM (Google Gemini) for root-cause analysis and fix suggestions; generated 100/100 reports with 0 runtime errors</li>
-            </ul>
-            <p class="muted">
-              <span class="code">Python</span>
-              <span class="code">REST APIs</span>
-              <span class="code">CI</span>
-              <span class="code">LLM</span>
-            </p>
           </article>
 
-          <!-- Cloth simulation project -->
-          <article class="card">
-            <div class="card-top">
+          <!-- Project card: Cloth Simulation -->
+          <article class="project-card">
+            <div class="project-media">
+              <!-- PLACEHOLDER (TODO): replace with your actual images, or remove extras -->
+              <img src="/assets/img/cloth-1.png" alt="Cloth simulation screenshot 1" />
+              <img src="/assets/img/cloth-2.png" alt="Cloth simulation screenshot 2" />
+              <img src="/assets/img/cloth-3.png" alt="Cloth simulation screenshot 3" />
+
+              <!-- PLACEHOLDER (TODO): replace with your Cloth Sim repo URL (or delete button if private) -->
+              <a class="arrow-btn" href="PASTE_CLOTHSIM_REPO" target="_blank" rel="noopener" aria-label="Open Cloth Simulation GitHub repository">
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <div class="project-body">
               <h3>Cloth Simulation with Realistic Rendering</h3>
-              <div class="card-links">
-                <!-- PLACEHOLDER: replace with your cloth sim repo URL (or remove if private) -->
-                <a class="btn small" href="PASTE_CLOTHSIM_REPO" target="_blank" rel="noopener">Repo</a>
+              <p class="muted">
+                Interactive cloth simulation with physics constraints and shader-based rendering.
+              </p>
+              <ul>
+                <li>Implemented point-mass + spring system with collisions; reduced cloth clipping by 90%</li>
+                <li>Wrote GLSL shaders to improve visual quality and realism</li>
+              </ul>
+
+              <div class="tag-row">
+                <span class="hash">#cpp</span>
+                <span class="hash">#opengl</span>
+                <span class="hash">#glsl</span>
+                <span class="hash">#graphics</span>
               </div>
             </div>
-            <p class="muted">Interactive cloth simulation with physics constraints and shader-based rendering.</p>
-            <ul>
-              <li>Implemented point-mass + spring system with numerical integration and collision handling; reduced cloth clipping by 90%</li>
-              <li>Wrote GLSL shaders to improve visual/texture quality by 85%; researched and implemented textile shading models</li>
-            </ul>
-            <p class="muted">
-              <span class="code">C++</span>
-              <span class="code">OpenGL</span>
-              <span class="code">GLSL</span>
-            </p>
           </article>
 
-          <!-- Grammys app project -->
-          <article class="card">
-            <div class="card-top">
+          <!-- Project card: Grammys Android -->
+          <article class="project-card">
+            <div class="project-media">
+              <!-- PLACEHOLDER (TODO): replace with your actual images, or remove extras -->
+              <img src="/assets/img/grammys-1.png" alt="Grammys app screenshot 1" />
+              <img src="/assets/img/grammys-2.png" alt="Grammys app screenshot 2" />
+              <img src="/assets/img/grammys-3.png" alt="Grammys app screenshot 3" />
+
+              <!-- PLACEHOLDER (TODO): replace with your Grammys repo URL -->
+              <a class="arrow-btn" href="PASTE_GRAMMYS_REPO" target="_blank" rel="noopener" aria-label="Open Grammys App GitHub repository">
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <div class="project-body">
               <h3>Grammys Winner Prediction — Android App</h3>
-              <div class="card-links">
-                <!-- PLACEHOLDER: replace with your Grammys app repo URL -->
-                <a class="btn small" href="PASTE_GRAMMYS_REPO" target="_blank" rel="noopener">Repo</a>
+              <p class="muted">
+                Android app for selecting, sharing, and discussing Grammy winner predictions.
+              </p>
+              <ul>
+                <li>Led a 4-person team; implemented core logic and UI components using Java + XML</li>
+                <li>Debugged workflows and improved user flow and performance through testing</li>
+              </ul>
+
+              <div class="tag-row">
+                <span class="hash">#android</span>
+                <span class="hash">#java</span>
+                <span class="hash">#xml</span>
+                <span class="hash">#mobile</span>
               </div>
             </div>
-            <p class="muted">Android app for selecting, sharing, and discussing Grammy winner predictions.</p>
-            <ul>
-              <li>Led a 4-person team; implemented core app logic and UI components using Java + XML</li>
-              <li>Tested and debugged workflows via unit tests and manual validation; improved user flow by 51% and page speed by 43%</li>
-            </ul>
-            <p class="muted">
-              <span class="code">Java</span>
-              <span class="code">Android SDK</span>
-              <span class="code">XML</span>
-            </p>
           </article>
-        </div>
+        </div>     
       </div>
     </section>
 
