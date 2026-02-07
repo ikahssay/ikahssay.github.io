@@ -483,16 +483,21 @@ h1{
 
 
 /* Mobile nav: stack into a single column (no wrapping into 2 columns) */
-@media (max-width: 900px){
+@media (max-width: 600px){
   .nav{
      flex-wrap: nowrap;     /* prevent wrapping into a second line */
+     align-items: center;
+     gap: 10px;
   }
 
   .navlinks{
+    flex: 1 1 auto;                    /* links take remaining space */
     flex-wrap: nowrap;           /* prevent wrapping into a second line */
     overflow-x: auto;            /* if it doesn’t fit, scroll horizontally */
     -webkit-overflow-scrolling: touch; /* smooth iOS scroll */
     gap: 10px;  /* tighter spacing so everything fits */
+    white-space: nowrap;               /* keep all links in one line */
+    padding-bottom: 2px;               /* prevents iOS clipping */
   }
 
   .navlinks a{
@@ -505,7 +510,16 @@ h1{
   }
 
   .brand{
-    font-size: 1rem;
+    font-size: 0.9rem;
+    flex: 0 0 auto;                    /* brand keeps its size */
+    max-width: 120px;                  /* prevents brand from eating the whole row */
+    overflow: hidden;                  /* trims if too long */
+    text-overflow: ellipsis;           /* shows "Iman Kah..." */
+    white-space: nowrap;               /* keep on one line */
+  }
+   /* Hide scrollbar (still scrollable) */
+  .navlinks::-webkit-scrollbar{
+    display: none;
   }
 }
 
