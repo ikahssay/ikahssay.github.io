@@ -483,25 +483,26 @@ h1{
 
 /* Mobile nav: stack into a single column (no wrapping into 2 columns) */
 @media (max-width: 700px){
-  .nav{
-    flex-direction: column;     /* brand on top, links below */
-    align-items: flex-start;    /* left align */
-    gap: 10px;                  /* breathing room */
+  .nav,
+  .navlinks{
+    flex-wrap: nowrap;     /* prevents second row */
   }
 
   .navlinks{
-    width: 100%;                /* take full width */
-    flex-direction: column;     /* links in one column */
-    align-items: flex-start;    /* left align */
-    gap: 6px;
+    gap: 10px;             /* tighter spacing so everything fits */
   }
 
   .navlinks a{
-    width: 100%;                /* each link is one full row */
+    white-space: nowrap;   /* prevents text breaking */
+    font-size: 0.9rem;
   }
 
   .navlinks .btn{
     width: auto;                /* keep resume button from stretching */
+  }
+
+  .brand{
+    font-size: 1rem;
   }
 }
 
