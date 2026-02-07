@@ -486,7 +486,7 @@ h1{
 @media (max-width: 600px){
   .nav{
      flex-wrap: nowrap;     /* prevent wrapping into a second line */
-     align-items: center;
+    /* align-items: center;*/
      gap: 10px;
   }
 
