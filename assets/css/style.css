@@ -344,7 +344,7 @@ h1{
 }
 
 .hash:nth-child(4n + 4){
-  color: rgba(100, 116, 139, 0.85);  /* dusty slate */
+  color: rgba(252, 106, 198, 0.85);  /* soft pink */
 }
 
 .hash:hover{
