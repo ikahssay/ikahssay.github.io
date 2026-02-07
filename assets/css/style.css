@@ -120,11 +120,6 @@ a:hover{ text-decoration:underline; }
   display: block;
 }
 
-/* About section should be single-column, but keep .split 2-column elsewhere (like Contact) */
-.about-section .split{
-  display: block; /* stacks panels vertically */
-}
-
 /* Small uppercase label text */
 .kicker{
   margin:0 0 10px;
@@ -137,7 +132,7 @@ a:hover{ text-decoration:underline; }
 /* Main hero headline */
 h1{
   margin: 0 0 12px;
-  font-size: 44px;
+  font-size: 55px;
   line-height: 1.1;
   letter-spacing: -0.5px;
 }
@@ -192,7 +187,7 @@ h1{
 /* Section header typography */
 .section-head h2{
   margin: 0 0 6px;
-  font-size: 38px;
+  font-size: 49px;
   letter-spacing: -0.3px;
 }
 
@@ -232,7 +227,7 @@ h1{
   margin-top: 18px;
 }
 
-/* Projects grid layout (Lucy-style cards, wide + clean) */
+/* Projects grid layout (cards style: wide + clean) */
 .projects-grid{
   display: grid; /* grid for consistent card layout */
   grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns on desktop */
@@ -273,7 +268,7 @@ h1{
 /* Make the first image big (left side spans two rows) */
 .project-media img:nth-child(1){
   grid-row: 1 / span 2; /* tall image */
-  height: 370px; /* taller to match Lucy feel */
+  height: 370px; 
 }
 
 /* Text body under the media area */
