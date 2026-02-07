@@ -316,8 +316,8 @@ h1{
   position: absolute; /* sits on top-right of the media area */
   top: 14px;
   right: 14px;
-  width: 33px;
-  height: 33px;
+  width: 22px;
+  height: 22px;
   border-radius: 999px; /* circle */
   display: grid;
   place-items: center;

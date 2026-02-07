@@ -1,41 +1,74 @@
-// Enable subtle 3D tilt on project cards based on mouse position
+// Subtle, stable 3D tilt for project cards (no edge jitter)
 (() => {
-  // Respect people who prefer reduced motion
+  // Respect reduced motion preferences
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduceMotion) return;
 
-  // Select all project cards that should tilt
   const cards = document.querySelectorAll(".project-card");
   if (!cards.length) return;
 
-  // Configure tilt intensity (keep subtle for a professional feel)
-  const MAX_TILT_X = 8;  // max rotation on X axis
-  const MAX_TILT_Y = 10; // max rotation on Y axis
+  // Configuration (tuned to avoid jitter)
+  const MAX_TILT_X = 7;     // degrees
+  const MAX_TILT_Y = 9;     // degrees
+  const EDGE_DEADZONE = 0.12; // % of card near edges where tilt stops
 
   cards.forEach((card) => {
-    // Apply tilt as the mouse moves inside the card
-    card.addEventListener("mousemove", (e) => {
-      // Get card bounds for relative mouse position
+    let rafId = null; // track animation frame
+
+    // Clamp helper
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    // Apply tilt in animation frame (prevents shaking)
+    const updateTilt = (e) => {
       const rect = card.getBoundingClientRect();
-      // Mouse position within the card
+
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
-      // Normalize mouse position to -0.5..0.5 range
-      const dx = x / rect.width - 0.5;
-      const dy = y / rect.height - 0.5;
+      const px = x / rect.width;
+      const py = y / rect.height;
 
-      // Convert to degrees (invert dy for natural tilt)
-      const tiltX = (-dy * MAX_TILT_X).toFixed(2);
-      const tiltY = (dx * MAX_TILT_Y).toFixed(2);
+      // Deadzone near edges → no tilt
+      if (
+        px < EDGE_DEADZONE ||
+        px > 1 - EDGE_DEADZONE ||
+        py < EDGE_DEADZONE ||
+        py > 1 - EDGE_DEADZONE
+      ) {
+        card.style.transform =
+          "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)";
+        return;
+      }
 
-      // Apply perspective + rotation + tiny lift
-      card.style.transform = `perspective(900px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-2px)`;
+      // Normalize to -0.5..0.5
+      const dx = px - 0.5;
+      const dy = py - 0.5;
+
+      // Compute tilt and clamp
+      const tiltX = clamp(-dy * MAX_TILT_X * 2, -MAX_TILT_X, MAX_TILT_X);
+      const tiltY = clamp(dx * MAX_TILT_Y * 2, -MAX_TILT_Y, MAX_TILT_Y);
+
+      card.style.transform = `
+        perspective(900px)
+        rotateX(${tiltX.toFixed(2)}deg)
+        rotateY(${tiltY.toFixed(2)}deg)
+        translateY(-2px)
+      `;
+    };
+
+    card.addEventListener("mousemove", (e) => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        updateTilt(e);
+        rafId = null;
+      });
     });
 
-    // Reset tilt when mouse leaves
     card.addEventListener("mouseleave", () => {
-      card.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)";
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = null;
+      card.style.transform =
+        "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)";
     });
   });
 })();
