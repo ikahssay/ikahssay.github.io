@@ -190,7 +190,7 @@ h1{
   font-size: 0.9rem;
   color: rgba(15,23,42,0.70);
   border: 1px solid var(--border);
-  background: rgba(186, 220, 255, 0.22); /* subtle pastel blue wash */
+  background: rgba(186, 220, 255, 0.11); /* subtle pastel blue wash */
   padding: 6px 10px;
   border-radius: 999px;
 }
@@ -256,6 +256,15 @@ h1{
   border-radius: var(--radius); /* rounded corners */
   box-shadow: var(--shadow); /* soft shadow */
   overflow: hidden; /* keeps rounded corners for media */
+
+  transform-style: preserve-3d; /* enables 3D transforms */
+  transition: transform 160ms ease, box-shadow 160ms ease; /* smooth motion */
+  will-change: transform; /* performance hint */
+}
+
+/* Slightly stronger shadow on hover to match the lift */
+.project-card:hover{
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
 }
 
 /* Media strip at the top (screenshots collage) */
@@ -295,7 +304,14 @@ h1{
   margin: 0 0 8px; /* spacing under title */
 }
 
-/* Lucy-style arrow button (blue theme) */
+/* Arrow icon SVG inside button */
+.arrow-icon{
+  width: 18px; /* icon size */
+  height: 18px;
+  color: rgba(15, 23, 42, 0.85); /* uses currentColor from SVG stroke */
+}
+
+/* Arrow button (blue theme) */
 .arrow-btn{
   position: absolute; /* sits on top-right of the media area */
   top: 14px;
@@ -311,18 +327,24 @@ h1{
   box-shadow: 0 10px 22px rgba(15, 23, 42, 0.10);
 }
 
-/* Arrow icon inside button */
-.arrow-btn span{
-  font-size: 20px; /* readable arrow */
-  font-weight: 700;
-  color: rgba(15, 23, 42, 0.85); /* dark text for contrast */
-}
-
 /* Hover state */
 .arrow-btn:hover{
   background: rgba(186, 220, 255, 0.95); /* slightly stronger blue */
   transform: translateY(-2px); /* subtle lift */
   text-decoration:none;
+}
+
+/* Prevent underline on the arrow button (global a:hover underlines links) */
+.arrow-btn,
+.arrow-btn:hover,
+.arrow-btn:focus,
+.arrow-btn:focus-visible{
+  text-decoration: none !important; /* forces no underline */
+}
+
+/* Also prevent any underline styling from affecting the SVG */
+.arrow-btn *{
+  text-decoration: none !important; /* keeps icon clean */
 }
 
 /* Hashtag-style tags row */
