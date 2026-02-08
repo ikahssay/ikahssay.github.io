@@ -249,6 +249,110 @@ h1{
   margin-top: 18px;
 }
 
+/* ===== Experience timeline ===== */
+.timeline{
+  position: relative;                 /* anchor the vertical line */
+  margin-top: 36px;                   /* spacing under section heading */
+  padding-left: 0;                    /* no default list padding */
+ /* --dot-y: 54px; /* single knob to move dot up/down */
+}
+
+/* The vertical line */
+.timeline::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.10);
+  border-radius: 999px;
+}
+
+/* Each item holds: date (center), dot (center), card (left/right) */
+.timeline-item{
+  --dot-y: 100px; /* 54 or 100px knob per-item (and relative to the item now) */
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr; /* left column, center line area, right column */
+  align-items: start;
+  gap: 18px;
+  padding: 26px 0;
+}
+
+/* Date label: alternates left/right like Lucy */
+.timeline-date{
+  font-weight: 500;
+  font-size: 0.95rem;
+  transform: translateY(100%);
+  color: rgba(15, 23, 42, 0.55);
+  margin-top: 6px; 
+  white-space: nowrap;
+  padding-top: 22px;          /* 22 aligns date with dot/card heading */
+}
+
+/* Odd items: card LEFT, date RIGHT */
+.timeline-item:nth-child(odd) .timeline-card{
+  grid-column: 1;
+}
+.timeline-item:nth-child(odd) .timeline-date{
+  grid-column: 3;
+  justify-self: start;
+  text-align: left;
+}
+
+/* Even items: card RIGHT, date LEFT */
+.timeline-item:nth-child(even) .timeline-card{
+  grid-column: 3;
+}
+
+.timeline-item:nth-child(even) .timeline-date{
+  grid-column: 1;
+  justify-self: end;
+  text-align: right;
+}
+
+/* Dot on the center line */
+.timeline-dot{
+  position: absolute;
+  left: 50%;
+  top: var(--dot-y);                         /* 52 aligns dot with the card */
+  transform: translateX(-50%); 
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(186, 220, 255, 0.95); /* your pastel blue */
+  border: 3px solid rgba(255,255,255,0.95);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+}
+
+/* The experience card */
+.timeline-card{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.72);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  opacity: 0;                         /* hidden until revealed */
+  transform: translateY(12px);        /* subtle slide-in */
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+/* Alternate left/right placement */
+.timeline-item:nth-child(odd) .timeline-card{
+  grid-column: 1;                     /* left side */
+}
+.timeline-item:nth-child(even) .timeline-card{
+  grid-column: 3;                     /* right side */
+}
+
+/* Reveal state (once visible, stays visible) */
+.timeline-item.is-visible .timeline-card{
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Projects grid layout (cards style: wide + clean) */
 .projects-grid{
   display: grid; /* grid for consistent card layout */
@@ -466,27 +570,6 @@ h1{
   .card{ grid-column: span 12; }           /* cards go full width */
 }
 
-/* Responsive: 1 column on smaller screens */
-@media (max-width: 600px){
-  .projects-grid{
-    grid-template-columns: 1fr; /* single column */
-  }
-  .project-media img:nth-child(1){
-    height: 260px; /* reduce tall image on mobile */
-  }
-  .project-media img{
-    height: 140px; /* smaller thumbs on mobile */
-  }
-}
-
-/* Stack About cards on small screens only */
-@media (max-width: 600px){
-  .about-section .split{
-    grid-template-columns: 1fr;       /* stacks for mobile */
-  }
-}
-
-
 /* Mobile nav: stack into a single column (no wrapping into 2 columns) */
 @media (max-width: 600px){
   .nav{
@@ -525,6 +608,56 @@ h1{
    /* Hide scrollbar (still scrollable) */
   .navlinks::-webkit-scrollbar{
     display: none;
+  }
+}
+
+/* Stack About cards on small screens only */
+@media (max-width: 600px){
+  .about-section .split{
+    grid-template-columns: 1fr;       /* stacks for mobile */
+  }
+}
+
+/* Mobile: stack everything on one side */
+@media (max-width: 600px){
+  .timeline::before{
+    left: 14px;                       /* move line to the left */
+    transform: none;
+  }
+
+  .timeline-item{
+    grid-template-columns: 36px 1fr;   /* line area + card */
+    gap: 14px;
+    padding: 22px 0;
+  }
+
+  .timeline-date{
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-left: 36px;
+  }
+
+  .timeline-dot{
+    left: 14px;
+    transform: none;
+    top: 56px;
+  }
+
+  .timeline-card{
+    grid-column: 2;
+  }
+}
+
+/* Responsive: 1 column on smaller screens */
+@media (max-width: 600px){
+  .projects-grid{
+    grid-template-columns: 1fr; /* single column */
+  }
+  .project-media img:nth-child(1){
+    height: 260px; /* reduce tall image on mobile */
+  }
+  .project-media img{
+    height: 140px; /* smaller thumbs on mobile */
   }
 }
 

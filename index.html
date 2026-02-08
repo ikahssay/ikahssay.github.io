@@ -142,40 +142,55 @@
           <h2>Work Experience</h2>
         </div>
 
-        <!-- Experience cards grid -->
-        <div class="grid">
-          <!-- Researcher experience -->
-          <article class="card">
-            <h3>Researcher · Interactive Organisms Lab (UC Davis)</h3>
-            <p class="muted">Microfluidic biosensing + Android companion app integration.</p>
-            <ul>
-              <li>Designed a microfluidic device with colorimetric biosensors (Fusion 360, FormLabs)</li>
-              <li>Developed a companion Android app (Kotlin + XML) for real-time detection (80% accuracy)</li>
-              <li>Led women-centered case studies (21 participants), improving 3D-printed device usability by 20%</li>
-            </ul>
-          </article>
+          <!-- Expeirence Cards In Timeline Format/Container -->
+          <div class="timeline">
+            <!-- Item 1 (most recent) -->
+            <div class="timeline-item">
+              <div class="timeline-date"> Sep 2024 - Present</div>
+              <div class="timeline-dot" aria-hidden="true"></div>
 
-          <!-- TA experience -->
-          <article class="card">
-            <h3>Teaching Assistant · UC Davis</h3>
-            <p class="muted">Debugging support, course operations, and lab logistics.</p>
-            <ul>
-              <li>Supported 150+ students across 4+ courses and 45+ office hours; resolved 95% of technical/programming issues</li>
-              <li>Managed attendance, exams, and grading for 1000+ assignments and quizzes</li>
-              <li>Assisted with Processing, Python, Arduino/Circuit Playground, and fabrication lab setups</li>
-            </ul>
-          </article>
+              <article class="timeline-card">
+                <h3>Researcher · Interactive Organisms Lab (UC Davis)</h3>
+                <p class="muted">Microfluidic biosensing + Android companion app integration.</p>
+                <ul>
+                  <li>Designed a microfluidic device with colorimetric biosensors (Fusion 360, FormLabs)</li>
+                  <li>Developed a companion Android app (Kotlin + XML) for real-time detection (80% accuracy)</li>
+                  <li>Led women-centered case studies (21 participants), improving 3D-printed device usability by 20%</li>
+                </ul>
+              </article>
+            </div>
 
-          <!-- Technical Account Analyst experience -->
-          <article class="card">
-            <h3>Technical Account Analyst · Zain Psychological &amp; Behavioral Health Services</h3>
-            <p class="muted">Backend APIs + testing for internal workflows.</p>
-            <ul>
-              <li>Built scalable RESTful APIs using Flask + MongoDB for accounting workflows and UI integration</li>
-              <li>Executed end-to-end testing in Postman, improving user flow by 23% and page speed by 19%</li>
-            </ul>
-          </article>
-        </div>
+            <!-- Item 2 -->
+            <div class="timeline-item">
+              <div class="timeline-date"> Sep 2024 – Present</div>
+              <div class="timeline-dot" aria-hidden="true"></div>
+
+              <article class="timeline-card">
+                <h3>Teaching Assistant · UC Davis</h3>
+                <p class="muted">Debugging support, course operations, and lab logistics.</p>
+                <ul>
+                  <li>Supported 150+ students across 4+ courses and 45+ office hours; resolved 95% of technical/programming issues</li>
+                  <li>Managed attendance, exams, and grading for 1000+ assignments and quizzes</li>
+                  <li>Assisted with Processing, Python, Arduino/Circuit Playground, and fabrication lab setups</li>
+                </ul>
+              </article>
+            </div>
+
+            <!-- Item 3 (older) -->
+            <div class="timeline-item">
+              <div class="timeline-date"> Jan 2022 – Sep 2024</div>
+              <div class="timeline-dot" aria-hidden="true"></div>
+
+              <article class="timeline-card">
+                <h3>Technical Account Analyst · Zain Psychological &amp; Behavioral Health Services</h3>
+                <p class="muted">Backend APIs + testing for internal workflows.</p>
+                <ul>
+                  <li>Built RESTful APIs using Flask + MongoDB for accounting workflows and UI integration</li>
+                  <li>Executed end-to-end testing in Postman, improving user flow by 23% and page speed by 19%</li>
+                </ul>
+              </article>
+            </div>
+          </div>
       </div>
     </section>
 
@@ -392,6 +407,9 @@
     // Auto-set the current year in the footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
+  <!-- Timeline reveal logic (shows experience cards on scroll) -->
+  <script src="/assets/js/timeline.js" defer></script>
 
   <!-- Project card tilt interaction -->
   <script src="/assets/js/tilt.js" defer></script>
