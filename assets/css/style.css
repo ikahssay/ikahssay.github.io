@@ -636,21 +636,26 @@ h1{
 
 /* Mobile responsiveness */
 @media (max-width: 600px){
+  h1{ font-size: 32px; }        /* shrink headline on mobile to help it fit better on smaller screen */
+  .sub{ margin-bottom: 0; }      /* optional */
+
+  .hero{ padding: 44px 0 28px; } /* optional: reduces hero height */
   .hero-grid{
     grid-template-columns: 2fr 1fr; /* hero grid stays side-by-side even on mobile*/
     gap: 12px;
     align-items: center;
   }
-
-  h1{ font-size: 32px; }        /* shrink headline on mobile to help it fit better on smaller screen */
-  .hero{ padding: 44px 0 28px; } /* optional: reduces hero height */
-  .sub{ margin-bottom: 0; }      /* optional */
   .hero-image{ 
-    min-height: 170px; 
+    min-height: 170px; /* optional: keep it compact */
     max-width: 180px;
     aspect-ratio: 1 / 1;
+
+    /*Stop pulling into the text. Instead of a hard -100px, make the translate responsive and “cap” it:*/
+    transform: translate(clamp(-24px, -6vw, -100px), -25px);
+    /*transform: none;         stop pulling into the text */
+    /*position: static;        optional: avoid sticky weirdness here */
+    justify-self: end;      /* keep it in its column */      
   }
-}
 
 /* Mobile nav: stack into a single column (no wrapping into 2 columns) */
 @media (max-width: 600px){
