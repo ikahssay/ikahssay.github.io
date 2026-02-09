@@ -355,20 +355,32 @@ h1{
   padding: 26px 0;
 }
 
-/* Date label: alternates left/right like Lucy */
-.timeline-date{
-  font-weight: 500;
-  font-size: 0.95rem;
-  transform: translateY(100%);
-  color: rgba(15, 23, 42, 0.55);
-  margin-top: 6px; 
-  white-space: nowrap;
-  padding-top: 22px;          /* 22 aligns date with dot/card heading */
+/* The experience card */
+.timeline-card{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.72);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+
+  opacity: 0;                         /* hidden until revealed */
+  transform: translateX(var(--slide-x, 0px)); /* direction decided below */
+  transition: opacity 1750ms ease, transform 1750ms ease; /*suble fade-in of cards*/
+  will-change: opacity, transform;
 }
 
+/* Reveal state (once visible, stays visible) */
+.timeline-item.is-visible .timeline-card{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Alternate left/right placement of cards */
 /* Odd items: card LEFT, date RIGHT */
 .timeline-item:nth-child(odd) .timeline-card{
   grid-column: 1;
+  transition-delay: 0ms;
+  --slide-x: 55px; /* subtle slide-in of cards*/
 }
 .timeline-item:nth-child(odd) .timeline-date{
   grid-column: 3;
@@ -379,8 +391,9 @@ h1{
 /* Even items: card RIGHT, date LEFT */
 .timeline-item:nth-child(even) .timeline-card{
   grid-column: 3;
+  transition-delay: 120ms;     
+  --slide-x: -55px; /* subtle slide-in of cards*/
 }
-
 .timeline-item:nth-child(even) .timeline-date{
   grid-column: 1;
   justify-self: end;
@@ -401,30 +414,15 @@ h1{
   box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
 }
 
-/* The experience card */
-.timeline-card{
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.72);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 18px;
-  opacity: 0;                         /* hidden until revealed */
-  transform: translateY(12px);        /* subtle slide-in */
-  transition: opacity 500ms ease, transform 500ms ease;
-}
-
-/* Alternate left/right placement */
-.timeline-item:nth-child(odd) .timeline-card{
-  grid-column: 1;                     /* left side */
-}
-.timeline-item:nth-child(even) .timeline-card{
-  grid-column: 3;                     /* right side */
-}
-
-/* Reveal state (once visible, stays visible) */
-.timeline-item.is-visible .timeline-card{
-  opacity: 1;
-  transform: translateY(0);
+/* Date label: alternates left/right like Lucy */
+.timeline-date{
+  font-weight: 500;
+  font-size: 0.95rem;
+  transform: translateY(100%);
+  color: rgba(15, 23, 42, 0.55);
+  margin-top: 6px; 
+  white-space: nowrap;
+  padding-top: 22px;          /* 22 aligns date with dot/card heading */
 }
 
 /* Projects grid layout (cards style: wide + clean) */
