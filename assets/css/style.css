@@ -420,7 +420,7 @@ h1{
   box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
 }
 
-/* Date label: alternates left/right like Lucy */
+/* Date label: alternates left/right */
 .timeline-date{
   font-weight: 500;
   font-size: 0.95rem;
@@ -644,6 +644,19 @@ h1{
 @media (max-width: 900px) {
   h1{ font-size: 32px; }        /* shrink headline on mobile to help it fit better on smaller screen */
   .sub{ margin-bottom: 0; }      /* optional */
+   /* hero subheadline */
+  .hero h2{
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  /* section titles like "Work Experience" */
+  .section-head h2{
+    font-size: 34px;
+    line-height: 1.1;
+  }
+
+  .kicker{ font-size: 0.75rem; }
 
   .hero{ padding: 44px 0 28px; } /* optional: reduces hero height */
   .hero-grid{
@@ -660,14 +673,19 @@ h1{
     max-width: 220px;
     aspect-ratio: 1 / 1;
     /*justify-self: end;       keep it in its column */  
+    position: relative;   /* was sticky */
+    overflow: hidden;
 
     --imgShiftX: -18px;  /* key change: don't yank it into the text */
     --imgShiftY: -10px;
 
-
     /*Stop pulling into the text. Instead of a hard -100px, make the translate responsive and “cap” it:*/
     /*transform: translate(clamp(-24px, -6vw, -100px), -25px);*/
     /*position: static;         optional: avoid sticky weirdness here */ 
+  }
+
+  .hero-image img{
+    border-radius: calc(var(--radius) - 4px);
   }
 }
 
@@ -738,12 +756,18 @@ h1{
     grid-template-columns: 36px 1fr;   /* line area + card */
     gap: 14px;
     padding: 22px 0;
+    --dot-y: 56px;         /* keep your dot aligned */
   }
 
   .timeline-date{
     grid-column: 1 / -1;
     justify-self: start;
     margin-left: 36px;
+
+    transform: none;       /* cancel desktop translateY(100%) */
+    padding-top: 0;
+    margin-top: 0;
+    white-space: normal;   /* allow wrapping if needed */
   }
 
   .timeline-dot{
