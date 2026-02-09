@@ -653,7 +653,7 @@ h1{
     /*Stop pulling into the text. Instead of a hard -100px, make the translate responsive and “cap” it:*/
     transform: translate(clamp(-24px, -6vw, -100px), -25px);
     /*transform: none;         stop pulling into the text */
-    /*position: static;        optional: avoid sticky weirdness here */
+    position: static;        /* optional: avoid sticky weirdness here */
     justify-self: end;      /* keep it in its column */      
   }
 
