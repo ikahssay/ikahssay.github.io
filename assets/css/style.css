@@ -1,3 +1,10 @@
+html::before{
+  content:"CSS UPDATED";
+  position:fixed; top:0; left:0; z-index:999999;
+  background:yellow; color:black; padding:6px 10px;
+  font: 14px/1.2 system-ui;
+}
+
 /* Theme variables: tweak these to change the whole look */
 :root{
   --bg: #f6fbff;                      /* page background */
@@ -657,9 +664,9 @@ h1{
   }
   .hero-image{ 
     min-height: 170px; /* optional: keep it compact */
-    max-width: 180px;
+    max-width: 220px;
     aspect-ratio: 1 / 1;
-    justify-self: end;      /* keep it in its column */  
+    /*justify-self: end;       keep it in its column */  
 
     --imgShiftX: -18px;  /* key change: don't yank it into the text */
     --imgShiftY: -10px;
