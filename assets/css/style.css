@@ -635,7 +635,7 @@ h1{
 }
 
 /* Mobile responsiveness */
-@media (max-width: 600px){
+@media (max-width: 600px) and (orientation: landscape) {
   h1{ font-size: 32px; }        /* shrink headline on mobile to help it fit better on smaller screen */
   .sub{ margin-bottom: 0; }      /* optional */
 
@@ -656,6 +656,7 @@ h1{
     position: static;        /* optional: avoid sticky weirdness here */
     justify-self: end;      /* keep it in its column */      
   }
+}
 
 /* Mobile nav: stack into a single column (no wrapping into 2 columns) */
 @media (max-width: 600px){
