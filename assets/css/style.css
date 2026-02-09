@@ -635,7 +635,7 @@ h1{
 }
 
 /* Mobile responsiveness */
-@media (max-width: 600px) and (orientation: landscape) {
+@media (max-width: 600px) {
   h1{ font-size: 32px; }        /* shrink headline on mobile to help it fit better on smaller screen */
   .sub{ margin-bottom: 0; }      /* optional */
 
@@ -652,7 +652,7 @@ h1{
 
     /*Stop pulling into the text. Instead of a hard -100px, make the translate responsive and “cap” it:*/
     transform: translate(clamp(-24px, -6vw, -100px), -25px);
-    /*transform: none;         stop pulling into the text */
+    transform: none;         /* stop pulling into the text */
     position: static;        /* optional: avoid sticky weirdness here */
     justify-self: end;      /* keep it in its column */      
   }
