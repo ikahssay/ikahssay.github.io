@@ -123,6 +123,9 @@ a:hover{ text-decoration:underline; }
 /* Hero section spacing */
 .hero{ padding: 70px 0 40px; }
 
+/* Let the text column shrink properly instead of forcing overlap */
+.hero-grid > :first-child { min-width: 0;}
+
 /* Hero single-column grid */
 .hero-grid{
   display: grid;
@@ -131,13 +134,13 @@ a:hover{ text-decoration:underline; }
   align-items: start;     
 }
 
+
 .hero-image{
   aspect-ratio: 1 / 1;      /* locks width & height together */
   max-width: 270px;         /* controls how big the square can be */
   width: 100%;
   justify-self: end;        /* keeps it aligned to the right column */
-  transform: translate(-100px, -25px);
-
+  
   border: 1px solid var(--border);
   background: rgba(186, 220, 255, 0.35);
   border-radius: var(--radius);
@@ -145,6 +148,9 @@ a:hover{ text-decoration:underline; }
   box-shadow: var(--shadow);
 
   /*Adding nice ui hover feature*/
+  --imgShiftX: -100px;   /* desktop default */
+  --imgShiftY: -25px;
+  transform: translate(var(--imgShiftX), var(--imgShiftY));
   position: sticky;
   overflow: hidden;
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
@@ -166,7 +172,7 @@ a:hover{ text-decoration:underline; }
 
 /* Hover: lift + glow + tiny zoom */
 .hero-image:hover{
-  transform: translate(-94px, -19px);
+  transform: translate(calc(var(--imgShiftX) + 6px), calc(var(--imgShiftY) + 6px));
   box-shadow: 0 18px 55px rgba(15, 23, 42, 0.16);
   background: rgba(186, 220, 255, 0.50);
 }
@@ -635,31 +641,46 @@ h1{
 }
 
 /* Mobile responsiveness */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   h1{ font-size: 32px; }        /* shrink headline on mobile to help it fit better on smaller screen */
   .sub{ margin-bottom: 0; }      /* optional */
 
   .hero{ padding: 44px 0 28px; } /* optional: reduces hero height */
   .hero-grid{
-    grid-template-columns: 2fr 1fr; /* hero grid stays side-by-side even on mobile*/
+    /*grid-template-columns: 2fr 1fr;  hero grid stays side-by-side even on mobile
     gap: 12px;
-    align-items: center;
+    align-items: center; */
+
+    /* still side-by-side, but give the image a more reliable column */
+    grid-template-columns: minmax(0, 1fr) minmax(170px, 220px);
+    gap: 16px; /* this gap is real spacing, unlike transform */
   }
   .hero-image{ 
     min-height: 170px; /* optional: keep it compact */
     max-width: 180px;
     aspect-ratio: 1 / 1;
+    justify-self: end;      /* keep it in its column */  
+
+    --imgShiftX: -18px;  /* key change: don't yank it into the text */
+    --imgShiftY: -10px;
+
 
     /*Stop pulling into the text. Instead of a hard -100px, make the translate responsive and “cap” it:*/
-    transform: translate(clamp(-24px, -6vw, -100px), -25px);
-    transform: none;         /* stop pulling into the text */
-    position: static;        /* optional: avoid sticky weirdness here */
-    justify-self: end;      /* keep it in its column */      
+    /*transform: translate(clamp(-24px, -6vw, -100px), -25px);*/
+    /*position: static;         optional: avoid sticky weirdness here */ 
+  }
+}
+
+/* Even tighter phones: basically no left shift, still side-by-side */
+@media (max-width: 600px){
+  .hero-image{
+    --imgShiftX: 0px;
+    --imgShiftY: -6px;
   }
 }
 
 /* Mobile nav: stack into a single column (no wrapping into 2 columns) */
-@media (max-width: 600px){
+@media (max-width: 900px){
   .nav{
      flex-wrap: nowrap;     /* prevent wrapping into a second line */
     align-items: center;
@@ -700,14 +721,14 @@ h1{
 }
 
 /* Stack About cards on small screens only */
-@media (max-width: 600px){
+@media (max-width: 900px){
   .about-section .split{
     grid-template-columns: 1fr;       /* stacks for mobile */
   }
 }
 
 /* Mobile: stack everything on one side */
-@media (max-width: 600px){
+@media (max-width: 900px){
   .timeline::before{
     left: 14px;                       /* move line to the left */
     transform: none;
@@ -737,7 +758,7 @@ h1{
 }
 
 /* Responsive: 1 column on smaller screens */
-@media (max-width: 600px){
+@media (max-width: 900px){
   .projects-grid{
     grid-template-columns: 1fr; /* single column */
   }
