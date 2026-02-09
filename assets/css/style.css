@@ -125,7 +125,81 @@ a:hover{ text-decoration:underline; }
 
 /* Hero single-column grid */
 .hero-grid{
+  display: grid;
+  grid-template-columns: 2fr 1fr;     /* left card 2/3, right card 1/3 */
+  gap: 18px;/*or 22*/                 /* spacing between cards (projects-like) */
+  align-items: start;     
+}
+
+.hero-image{
+  aspect-ratio: 1 / 1;      /* locks width & height together */
+  max-width: 270px;         /* controls how big the square can be */
+  width: 100%;
+  justify-self: end;        /* keeps it aligned to the right column */
+  transform: translate(-100px, -25px);
+
+  border: 1px solid var(--border);
+  background: rgba(186, 220, 255, 0.35);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow);
+
+  /*Adding nice ui hover feature*/
+  position: sticky;
+  overflow: hidden;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  will-change: transform;
+}
+
+.hero-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  
+
+  /*Adding nice ui hover feature*/
   display: block;
+  transition: transform 240ms ease, filter 240ms ease;
+  will-change: transform;
+}
+
+/* Hover: lift + glow + tiny zoom */
+.hero-image:hover{
+  transform: translate(-94px, -19px);
+  box-shadow: 0 18px 55px rgba(15, 23, 42, 0.16);
+  background: rgba(186, 220, 255, 0.50);
+}
+
+.hero-image:hover img{
+  transform: scale(1.03);
+  filter: saturate(1.05) contrast(1.03);
+}
+
+/* Nice focus style for keyboard users */
+.hero-image:focus-within{
+  outline: 3px solid rgba(59, 131, 246, 0.25);
+  outline-offset: 3px;
+}
+
+/*Adds a a soft “shine” sweep after hovering*/
+.hero-image::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.35) 35%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 450ms ease;
+  pointer-events: none;
+}
+
+.hero-image:hover::after{
+  transform: translateX(120%);
 }
 
 /* About split: left 2/3, right 1/3 (Contact .split stays 1fr 1fr) */
@@ -564,10 +638,20 @@ h1{
 
 /* Mobile responsiveness */
 @media (max-width: 600px){
-  h1{ font-size: 36px; }                   /* shrink headline on mobile */
-  .hero-grid{ grid-template-columns: 1fr; } /* stack hero columns */
-  .section:not(.about-section) .split{ grid-template-columns: 1fr; }     /* stack split sections */
-  .card{ grid-column: span 12; }           /* cards go full width */
+  .hero-grid{
+    grid-template-columns: 2fr 1fr; /* hero grid stays side-by-side even on mobile*/
+    gap: 12px;
+    align-items: center;
+  }
+
+  h1{ font-size: 32px; }        /* shrink headline on mobile to help it fit better on smaller screen */
+  .hero{ padding: 44px 0 28px; } /* optional: reduces hero height */
+  .sub{ margin-bottom: 0; }      /* optional */
+  .hero-image{ 
+    min-height: 170px; 
+    max-width: 180px;
+    aspect-ratio: 1 / 1;
+  }
 }
 
 /* Mobile nav: stack into a single column (no wrapping into 2 columns) */
@@ -668,5 +752,8 @@ h1{
   }
   .arrow-btn:active{
     transform: scale(0.96);           /* press feedback on the arrow */
+  }
+  .hero-image:active{
+    transform: scale(0.99);
   }
 }

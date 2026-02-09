@@ -51,13 +51,20 @@
       <!-- Hero grid: left intro + right highlights -->
       <div class="container hero-grid">
         <div>
+          <!-- LEFT: text -->
           <!-- Main headline -->
           <h1>Hi, I'm Iman Kahssay</h1>
           <!-- Sub-headline -->
           <h2>A Software Engineer focused on building reliable, thoughtful systems</h2>
-
           <!-- smaller-headline (degrees) -->
-          <p class="sub">M.S. Computer Science, UC Davis · B.S. EECS, UC Berkeley</p>
+          <p class="sub">Master's in Computer Science, UC Davis</p>
+          <p class="sub">Bachelor's in Electrical Engineering & Computer Science, UC Berkeley</p>
+        </div>
+
+        <!-- RIGHT: image -->
+        <div class="hero-image">
+          <img src="/assets/img/professionalPhoto.jpg" alt="Portfolio preview">
+        </div>
       </div>
     </section>
 
@@ -153,9 +160,10 @@
                 <h3>Researcher · Interactive Organisms Lab (UC Davis)</h3>
                 <p class="muted">Microfluidic biosensing + Android companion app integration.</p>
                 <ul>
-                  <li>Designed a microfluidic device with colorimetric biosensors (Fusion 360, FormLabs)</li>
-                  <li>Developed a companion Android app (Kotlin + XML) for real-time detection (80% accuracy)</li>
-                  <li>Led women-centered case studies (21 participants), improving 3D-printed device usability by 20%</li>
+                  <li>Designed a microfluidic device (Fusion 360, FormLabs) with colorimetric biosensors to detect biomarkers in bodily fluids</li>
+                  <li>Developed a companion Android app (Kotlin + XML) and integrated sensor data pipelines for real-time biomarker detection (80% accuracy)</li>
+                  <li>Created and led women-centered case studies (21 participants); incorporated feedback that informed app feature refinements & improved device usability by 20%</li>
+                   <li>Co-authored and presented findings in a research report</li>
                 </ul>
               </article>
             </div>
@@ -229,25 +237,27 @@
             <!-- Text content area -->
             <div class="project-body">
               <!-- Project title -->
-              <h3>FitBot — Fitness Analytics Web App</h3>
+              <h3>FitBot</h3>
 
               <!-- Project description -->
               <p class="muted">
-                MERN app that computes and visualizes calories burned and goal progress.
+                A personalized fitness analytics web app that computes and visualizes calories burned and goal progress
               </p>
 
               <!-- Project bullets -->
               <ul>
-                <li>Engineered MERN architecture for real-time updates, computation, and interactive visualizations</li>
-                <li>Implemented calorie-burn algorithms using 6+ variables across 10K+ activity records</li>
+                <li>Engineered a scalable MERN architecture for real-time updates, backend computation, and interactive visualizations</li>
+                <li>Implemented multi-feature calorie-burn algorithms using 6+ variables across 10K+ activity records, increasing personalization and accuracy of health insights by 35%</li>
+                <li>Leveraged research to improve clarity by 45% and user engagement by 52%</li></lili>
               </ul>
 
               <!-- Tag chips (hashtags, but blue) -->
               <div class="tag-row">
+                <span class="hash">#mongodb</span>
+                <span class="hash">#express</span>
                 <span class="hash">#react</span>
                 <span class="hash">#node.js</span>
-                <span class="hash">#mongodb</span>
-                <span class="hash">#data-viz</span>
+                <span class="hash">#python</span>
               </div>
             </div>
           </article>
@@ -270,13 +280,15 @@
             </div>
 
             <div class="project-body">
-              <h3>BugSwarm — Automated Bug Reporter</h3>
+              <h3>BugSwarm</h3>
               <p class="muted">
-                Python pipeline that turns CI failure artifacts into structured bug reports.
+                Python pipeline that turns CI failure artifacts into structured, human-readable bug reports
               </p>
               <ul>
-                <li>Integrated BugSwarm + Travis CI via REST APIs; added log sanitization and diff summarization</li>
-                <li>Added LLM-based root-cause analysis; generated 100/100 reports with 0 runtime errors</li>
+                <li>Embedded BugSwarm + Travis CI via REST APIs to ingest and process CI failure artifacts; added log sanitization and diff summarization</li>
+                <li>Integrated an LLM (Google Gemini) to generate bug reports that contains root-cause analyses and fix suggestions; generated
+                100/100 reports with 0 runtime errors</li>
+                <li>Reduced manual bug documentation effort by ~70%</li>
               </ul>
 
               <div class="tag-row">
@@ -310,8 +322,9 @@
                 Interactive cloth simulation with physics constraints and shader-based rendering.
               </p>
               <ul>
-                <li>Implemented point-mass + spring system with collisions; reduced cloth clipping by 90%</li>
-                <li>Wrote GLSL shaders to improve visual quality and realism</li>
+                <li>Implemented point-mass + spring system with collision handling to accurately model cloth movement; reduced cloth clipping by 90%</li>
+                <li>Wrote GLSL shaders to improve visual & texture quality by 85%</li> 
+                <li>Developed two new shaders through research on new/improved shading models for textile materials; optimized cloth's visual quality by 80%</li>
               </ul>
 
               <div class="tag-row">
@@ -340,20 +353,22 @@
             </div>
 
             <div class="project-body">
-              <h3>Grammys Winner Prediction — Android App</h3>
+              <h3>Grammys Winner Prediction</h3>
               <p class="muted">
                 Android app for selecting, sharing, and discussing Grammy winner predictions.
               </p>
               <ul>
-                <li>Led a 4-person team; implemented core logic and UI components using Java + XML</li>
-                <li>Debugged workflows and improved user flow and performance through testing</li>
+                <li>Led a 4-person team to build an Android app; implemented core app logic and UI components</li>
+                <li>Identified and resolved performance and workflow issues through unit testing and manual validation, improving user flow by 51% and page speed by 43%</li>
+                <li>Conducted user interviews and usability testing, incorporating feedback to refine features and improve overall usability</li>
               </ul>
 
+
               <div class="tag-row">
-                <span class="hash">#android</span>
                 <span class="hash">#java</span>
                 <span class="hash">#xml</span>
-                <span class="hash">#mobile</span>
+                <span class="hash">#figma</span>
+                <span class="hash">#android-studio</span>
               </div>
             </div>
           </article>
@@ -387,8 +402,12 @@
           <!-- Simple recruiter notes panel (optional) -->
           <div class="panel">
             <h3>Recruiter notes</h3>
-            <p class="muted">I currently reside in California (UC Davis) </p>
-            <p class="muted">I'm open to SWE new grad or UX/UI Engineering roles anywhere in the U.S. (ideally in California or in Seattle, WA)</p>
+            <p class="muted">
+              Currently based in Davis, California (UC Davis), graduating in June 2026.
+            </p>
+            <p class="muted">
+              Open to new-grad Software Engineering or UX/UI Engineering roles nationwide, with a preference for California or Seattle, WA.
+            </p>
           </div>
         </div>
       </div>
