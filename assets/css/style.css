@@ -1,10 +1,3 @@
-html::before{
-  content:"CSS UPDATED";
-  position:fixed; top:0; left:0; z-index:999999;
-  background:yellow; color:black; padding:6px 10px;
-  font: 14px/1.2 system-ui;
-}
-
 /* Theme variables: tweak these to change the whole look */
 :root{
   --bg: #f6fbff;                      /* page background */
@@ -767,7 +760,8 @@ h1{
 /* Responsive: 1 column on smaller screens */
 @media (max-width: 900px){
   .projects-grid{
-    grid-template-columns: 1fr; /* single column */
+    display: grid; /* grid for consistent card layout */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns on desktop */
   }
   .project-media img:nth-child(1){
     height: 260px; /* reduce tall image on mobile */
