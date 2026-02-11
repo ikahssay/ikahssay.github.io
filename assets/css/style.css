@@ -856,9 +856,9 @@ h1{
   }
 
   .timeline-dot{
-    left: 14px;
-    transform: none;
-    top: 56px;
+    left: 15px;
+    /*transform: none;*/
+    top: 100px;
   }
 
   .timeline-card{
