@@ -8,7 +8,7 @@
   <!-- Makes layout responsive on mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Browser tab image -->
-  <link rel="icon" type="image/png" href="/assets/img/web_logo.png">
+  <link rel="icon" type="image/png" href="/assets/img/branding/web_logo.png">
   <!-- Browser tab title -->
   <title>Iman Kahssay · Software Engineer + Human-Centered Systems</title>
   
@@ -31,7 +31,7 @@
       <!-- Brand link scrolls to top of the page -->
       <a class="brand" href="#top">
         <img
-          src="/assets/img/web_logo.png"
+          src="/assets/img/branding/web_logo.png"
           alt=""
           class="brand-logo"
           aria-hidden="true"
@@ -45,10 +45,16 @@
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-        <!-- Resume & LinkedIn button in the nav (make sure this filename matches your repo) -->
-        <!-- TODO: Replace the words with icons, and think aout adding email here too!-->
-        <a class="btn" href="/SWE_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-        <a class="btn" href="https://www.linkedin.com/in/iman-kahssay" target="_blank" rel="noopener">LinkedIn</a>
+        <!-- Resume, LinkedIn, and Github button in the nav -->
+        <a class="nav-icon-link" href="/SWE_Resume.pdf" target="_blank" rel="noopener" aria-label="Open resume (PDF)">
+          <img class="nav-icon" src="/assets/img/icons/resumeIcon3.png" alt="" aria-hidden="true" />
+        </a>
+        <a class="nav-icon-link" href="https://www.linkedin.com/in/iman-kahssay" target="_blank" rel="noopener" aria-label="Open LinkedIn profile">
+          <img class="nav-icon" src="/assets/img/icons/linedinIconSquare.png" alt="" aria-hidden="true" />
+        </a>
+        <a class="nav-icon-link" href="https://github.com/ikahssay/Portfolio" target="_blank" rel="noopener" aria-label="Open Github main profile">
+          <img class="nav-icon" src="/assets/img/icons/githubIconSquare.svg" alt="" aria-hidden="true" />
+        </a>
       </nav>
     </div>
   </header>
@@ -72,7 +78,7 @@
 
         <!-- RIGHT: image -->
         <div class="hero-image">
-          <img src="/assets/img/professionalPhoto.jpg" alt="Portfolio preview">
+          <img src="/assets/img/branding/professionalPhoto.jpg" alt="Portfolio preview">
         </div>
       </div>
     </section>
@@ -234,7 +240,7 @@
 
               <!-- Arrow button (goes to repo) -->
               <!-- PLACEHOLDER (TODO): replace with FitBot repo URL -->
-              <a class="arrow-btn" href="FITBOT_GITHUB REPO" target="_blank" rel="noopener" aria-label="Open project GitHub repository">
+              <a class="arrow-btn" href="https://github.com/ikahssay/Portfolio" target="_blank" rel="noopener" aria-label="Open project GitHub repository">
                 <!-- SVG arrow icon (looks like the common portfolio arrow) -->
                 <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M7 17L17 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -279,7 +285,7 @@
               <img src="/assets/img/bugswarmReports/manualBugReport.jpg" alt="BugSwarm screenshot 3" />
 
               <!-- PLACEHOLDER (TODO): replace with your BugSwarm repo URL -->
-              <a class="arrow-btn" href="PASTE_BUGSWARM_REPO" target="_blank" rel="noopener" aria-label="Open project GitHub repository">
+              <a class="arrow-btn" href="https://github.com/ikahssay/Portfolio" target="_blank" rel="noopener" aria-label="Open project GitHub repository">
                 <!-- SVG arrow icon (looks like the common portfolio arrow) -->
                 <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M7 17L17 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -400,11 +406,10 @@
         <div class="split">
           <!-- Contact links -->
           <div class="panel">
-            <p>The best way to reach me is via email.</p>
+            <p>The best way to reach me is via email</p>
             <div class="pills">
-              <a class="pill" href="mailto:iakahssay@ucdavis.edu">iakahssay@ucdavis.edu</a>
-              <a class="pill" href="https://www.linkedin.com/in/iman-kahssay" target="_blank" rel="noopener">LinkedIn</a>
-              <a class="pill" href="https://github.com/ikahssay/Portfolio" target="_blank" rel="noopener">GitHub</a>
+              <a class="pill" href="mailto:iakahssay@ucdavis.edu">Email</a>
+              <a class="pill" href="https://www.linkedin.com/in/iman-kahssay">LinkedIn</a>
             </div>
           </div>
 

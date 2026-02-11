@@ -102,11 +102,17 @@ a:hover{ text-decoration:underline; }
   justify-content:flex-end;
 }
 
-/* Navigation link styling */
-.navlinks a{
-  padding: 8px 10px;
+/* pills for normal nav links */
+.navlinks a:not(.nav-icon-link){
+  /* keep existing pill styles here */
   border-radius: 999px;               /* pill shape */
+  padding: 8px 10px;
   opacity: 0.9;
+}
+
+/* rounded square for nav icon links*/
+.navlinks a.nav-icon-link{
+  border-radius: 10px; /* or whatever you want */
 }
 
 /* Hover effect to feel “website-y” */
@@ -139,6 +145,37 @@ a:hover{ text-decoration:underline; }
 /* Smaller button variant (used in project cards) */
 .btn.small{ padding: 6px 10px; font-size: 0.95rem; }
 
+/* Nav icon links (Resume/LinkedIn/Github icons in the header) */
+.nav-icon-link{
+  width: 44px;
+  height:44px;  
+  display: grid;
+  place-items: center;
+  
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+  padding: 0;
+}
+
+.nav-icon-link:hover{
+  background: rgba(186, 220, 255, 0.55);
+  transform: translateY(-1px);
+  text-decoration:none;
+}
+
+/* The icon image itself */
+.nav-icon{
+  width: 33px; 
+  height: 33px; 
+  display: block;
+  object-fit: contain;
+  align-items:center;
+}
+
+/* If using SVGs with strokes that look too faint, this helps them pop a bit */
+.nav-icon-link img{ opacity: 0.92; }
+
 /* Hero section spacing */
 .hero{ padding: 70px 0 40px; }
 
@@ -159,6 +196,7 @@ a:hover{ text-decoration:underline; }
   max-width: 270px;         /* controls how big the square can be */
   width: 100%;
   justify-self: end;        /* keeps it aligned to the right column */
+  align-items:center;
   
   border: 1px solid var(--border);
   background: rgba(186, 220, 255, 0.35);
@@ -181,6 +219,7 @@ a:hover{ text-decoration:underline; }
   height: 100%;
   object-fit: cover;
   border-radius: 14px;
+  align-items:center;
   
 
   /*Adding nice ui hover feature*/
@@ -287,6 +326,7 @@ h1{
 .pill:hover{
   background: rgba(186, 220, 255, 0.45);
   text-decoration:none;
+  transform: translateY(-1.5px);
 }
 
 /* Skill chips row */
@@ -521,8 +561,8 @@ h1{
 
 /* Arrow icon SVG inside button */
 .arrow-icon{
-  width: 18px; /* icon size */
-  height: 18px;
+  width: 24px; /* icon size */
+  height: 24px;
   color: rgba(15, 23, 42, 0.85); /* uses currentColor from SVG stroke */
 }
 
@@ -531,8 +571,8 @@ h1{
   position: absolute; /* sits on top-right of the media area */
   top: 14px;
   right: 14px;
-  width: 33px;
-  height: 33px;
+  width: 35px;
+  height: 35px;
   border-radius: 999px; /* circle */
   display: grid;
   place-items: center;
@@ -714,10 +754,30 @@ h1{
     --imgShiftX: 0px;
     --imgShiftY: -6px;
   }
+
+  /* Slightly smaller header icons on very small phones */
+  .brand-logo{ width: 28px; height: 28px; }
+  .nav-icon-link{ width: 32px; height: 32px; }
+  .nav-icon{ width: 17px; height: 17px; }
 }
 
 /* Mobile nav: stack into a single column (no wrapping into 2 columns) */
 @media (max-width: 900px){
+  /* Keep header icons from blowing up on small screens */
+  .brand-logo{
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand{
+    font-size: 0.9rem;
+    flex: 0 0 auto;                    /* brand keeps its size */
+    max-width: 120px;                  /* prevents brand from eating the whole row */
+    overflow: hidden;                  /* trims if too long */
+    text-overflow: ellipsis;           /* shows "Iman Kah..." */
+    white-space: nowrap;               /* keep on one line */
+  }
+  
   .nav{
      flex-wrap: nowrap;     /* prevent wrapping into a second line */
     align-items: center;
@@ -743,14 +803,18 @@ h1{
     width: auto;                /* keep resume button from stretching */
   }
 
-  .brand{
-    font-size: 0.9rem;
-    flex: 0 0 auto;                    /* brand keeps its size */
-    max-width: 120px;                  /* prevents brand from eating the whole row */
-    overflow: hidden;                  /* trims if too long */
-    text-overflow: ellipsis;           /* shows "Iman Kah..." */
-    white-space: nowrap;               /* keep on one line */
+  .nav-icon-link{
+    width: 34px;
+    height: 34px;
+    flex: 0 0 auto; /* don't stretch */
   }
+
+  .nav-icon{
+    width: 18px;
+    height: 18px;
+  }
+
+  
    /* Hide scrollbar (still scrollable) */
   .navlinks::-webkit-scrollbar{
     display: none;
