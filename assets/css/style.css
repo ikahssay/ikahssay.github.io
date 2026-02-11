@@ -187,7 +187,6 @@ a:hover{ text-decoration:underline; }
   align-items: start;     
 }
 
-
 .hero-image{
   aspect-ratio: 1 / 1;      /* locks width & height together */
   max-width: 270px;         /* controls how big the square can be */
@@ -261,6 +260,12 @@ a:hover{ text-decoration:underline; }
 
 .hero-image:hover::after{
   transform: translateX(120%);
+}
+
+.honor{
+  font-style: italic;
+  font-size: 0.95em;
+  opacity: 0.88;
 }
 
 /* About split: left 2/3, right 1/3 (Contact .split stays 1fr 1fr) */
@@ -769,7 +774,7 @@ h1{
   .brand{
     font-size: 0.9rem;
     flex: 0 0 auto;                    /* brand keeps its size */
-    max-width: 120px;                  /* prevents brand from eating the whole row */
+    max-width: 170px;                  /* prevents brand from eating the whole row */
     overflow: hidden;                  /* trims if too long */
     text-overflow: ellipsis;           /* shows "Iman Kah..." */
     white-space: nowrap;               /* keep on one line */
@@ -858,6 +863,20 @@ h1{
 
   .timeline-card{
     grid-column: 2;
+  }
+
+  /* Force cards/dates into the single mobile column.
+     The desktop nth-child rules are more specific, so we override them here. */
+  .timeline-item:nth-child(odd) .timeline-card,
+  .timeline-item:nth-child(even) .timeline-card{
+    grid-column: 2;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-date,
+  .timeline-item:nth-child(even) .timeline-date{
+    grid-column: 1 / -1;
+    justify-self: start;
+    text-align: left;
   }
 }
 
