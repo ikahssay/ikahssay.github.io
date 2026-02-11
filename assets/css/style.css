@@ -10,7 +10,7 @@
   --border: rgba(15, 23, 42, 0.12);   /* subtle borders */
   --shadow: 0 10px 30px rgba(15, 23, 42, 0.10); /* soft shadow */
 
-  --maxw: 1120px;                     /* overall website width (increase if desired) */
+  --maxw: 1200px;                     /* overall website width (increase if desired), original: 1120px */
   --pad: 22px;                        /* side padding */
   --radius: 18px;                     /* card rounding */
 }
