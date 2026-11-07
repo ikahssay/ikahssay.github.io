@@ -287,6 +287,7 @@ a:hover{ text-decoration:underline; }
 h1{
   margin: 0 0 12px;
   font-size: 55px;
+  /*font-family:'Georgia', sans-serif; typography */
   line-height: 1.1;
   letter-spacing: -0.5px;
 }
@@ -517,21 +518,8 @@ h1{
   box-shadow: var(--shadow); /* soft shadow */
   overflow: hidden; /* keeps rounded corners for media */
 
-  /* The bullet points' spacing within each experience card*/
-  & ul{
-    padding-left: 24px;  /* Indentation of bullet list */
-  }
-
-   /* Spacing between individual bullet points */
-  & li{
-    margin-bottom: 6px; /* Space between bullet points */
-    line-height: 1.6;    /* Space between lines within each bullet */
-  }
-
-  /* Remove extra spacing after the final bullet */
-  & li:last-child{
-    margin-bottom: 0;
-  }
+  display: flex;
+  flex-direction: column;
 
   transform-style: preserve-3d; /* enables 3D transforms */
   transition: transform 160ms ease, box-shadow 160ms ease; /* smooth motion */
@@ -576,9 +564,63 @@ h1{
   margin-top: 20px; /* padding space above large image */
 }
 
+/*Same project card but with image layouts reversed/flipped
+
+/* Lab-on-a-Nail: reverse the image collage layout 
+.flipped-image-positions .project-media {
+  grid-template-columns: 1fr 1.4fr;
+  /* Smaller images on left, larger image on right 
+}
+
+/* Move the large first image to the right column 
+.flipped-image-positions .project-media img:nth-child(1) {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+/* Stack the two smaller images on the left 
+.flipped-image-positions .project-media img:nth-child(2) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.flipped-image-positions .project-media img:nth-child(3) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+*/
+
 /* Text body under the media area */
 .project-body{
-  padding: 18px; /* comfortable reading space */
+  padding: 12px 24px; /* comfortable reading space */
+
+  flex: 1; /* Fill the remaining card height */
+  display: grid; /* Arrange content into four rows */
+  grid-template-rows: auto auto auto 1fr;
+  /* Title | Description | Bullet list | Hashtags */
+
+  /* Control spacing within the card */
+  & p {
+    margin: 0 0 10px; /* Only 8px between description and bullet list */
+  }
+
+  /* The bullet points' spacing within each experience card*/
+  & ul{
+    padding-left: 24px;  /* Indentation of bullet list */
+    margin: 0px;/* Remove the browser's default top/bottom list margins */
+  }
+
+   /* Spacing between individual bullet points */
+  & li{
+    margin-bottom: 6px; /* Space between bullet points */
+    line-height: 1.6;    /* Space between lines within each bullet */
+  }
+
+  /* Remove extra spacing after the final bullet */
+  & li:last-child{
+    margin-bottom: 0;
+  }
 }
 
 /* Project title */
@@ -635,6 +677,7 @@ h1{
   gap: 10px;
   flex-wrap: wrap;
   margin-top: 12px;
+  align-self: end; 
 }
 
 /* Hashtags styled to match my blue scheme */
@@ -642,6 +685,9 @@ h1{
 .hash{
   font-weight: 200;
   font-size: 0.95rem;
+  padding: 4px 8px; /* Space inside the pill */
+  border-radius: 999px; /* Rounded pill shape */
+  transition: background 180ms ease, transform 180ms ease;
 }
 
 /* Rotating soft accent colors */
@@ -662,8 +708,14 @@ h1{
 }
 
 .hash:hover{
-  text-decoration: underline;
+  text-decoration: b;
   opacity: 0.9;
+
+  /* background: rgba(186, 220, 255, 0.35); Pastel blue */
+   background: rgb(from currentColor r g b / 0.15); /* Use the hashtag's own text color at 15% opacity */
+  font-weight: 600;  /* Semibold on hover */
+  transform: translateY(-2px); /* Slight upward movement */
+  opacity: 1;
 }
 
 /* Card styling (each card spans 6 columns on desktop) */
