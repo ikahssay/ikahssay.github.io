@@ -797,30 +797,30 @@ h1{
   .kicker{ font-size: 0.75rem; }
 
   .hero{ padding: 44px 0 28px; } /* optional: reduces hero height */
+  
   .hero-grid{
     /*grid-template-columns: 2fr 1fr;  hero grid stays side-by-side even on mobile
     gap: 12px;
     align-items: center; */
 
     /* still side-by-side, but give the image a more reliable column */
-    grid-template-columns: minmax(0, 1fr) minmax(170px, 220px);
-    gap: 16px; /* this gap is real spacing, unlike transform */
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px; /* this gap is real spacing, unlike transform */
   }
+
   .hero-image{ 
-    min-height: 170px; /* optional: keep it compact */
-    max-width: 220px;
+    order: -1; /* Display image before the text */
+    min-height: 120px; /* optional: keep it compact */
+    max-width: 140px;
     aspect-ratio: 1 / 1;
-    /*justify-self: end;       keep it in its column */  
+    justify-self: center;    /*keep it either in the center or on the right hand side*/  
     position: relative;   /* was sticky */
     overflow: hidden;
 
     --imgShiftX: -18px;  /* key change: don't yank it into the text */
     --imgShiftY: -10px;
-
-    /*Stop pulling into the text. Instead of a hard -100px, make the translate responsive and “cap” it:*/
-    /*transform: translate(clamp(-24px, -6vw, -100px), -25px);*/
-    /*position: static;         optional: avoid sticky weirdness here */ 
   }
+
 
   .hero-image img{
     border-radius: calc(var(--radius) - 2px);
@@ -851,16 +851,16 @@ h1{
   .brand{
     font-size: 0.9rem;
     flex: 0 0 auto;                    /* brand keeps its size */
-    max-width: 170px;                  /* prevents brand from eating the whole row */
+    max-width: 180px;                  /* prevents brand from eating the whole row */
     overflow: hidden;                  /* trims if too long */
     text-overflow: ellipsis;           /* shows "Iman Kah..." */
     white-space: nowrap;               /* keep on one line */
   }
   
   .nav{
-     flex-wrap: nowrap;     /* prevent wrapping into a second line */
+    flex-wrap: nowrap;     /* prevent wrapping into a second line */
     align-items: center;
-     gap: 10px;
+    gap: 6px;
   }
 
   .navlinks{
@@ -893,17 +893,9 @@ h1{
     height: 18px;
   }
 
-  
    /* Hide scrollbar (still scrollable) */
   .navlinks::-webkit-scrollbar{
     display: none;
-  }
-}
-
-/* Stack About cards on small screens only */
-@media (max-width: 900px){
-  .about-section .split{
-    grid-template-columns: 1fr;       /* stacks for mobile */
   }
 }
 
@@ -915,10 +907,19 @@ h1{
   }
 
   .timeline-item{
-    grid-template-columns: 36px 1fr;   /* line area + card */
-    gap: 14px;
-    padding: 22px 0;
-    --dot-y: 56px;         /* keep your dot aligned */
+    grid-template-columns: 24px minmax(0, 1fr); /* line area + card */
+    gap: 8px;
+    padding: 18px 0;
+    --dot-y: 56px; /* keep the timeline dot aligned */
+  }
+
+  .timeline-card{
+    min-width: 0;
+    padding: 0px 16px;
+    
+    & ul{
+      padding-left: 18px;
+    }
   }
 
   .timeline-date{
@@ -934,12 +935,7 @@ h1{
 
   .timeline-dot{
     left: 15px;
-    /*transform: none;*/
     top: 100px;
-  }
-
-  .timeline-card{
-    grid-column: 2;
   }
 
   /* Force cards/dates into the single mobile column.
@@ -957,17 +953,53 @@ h1{
   }
 }
 
-/* Responsive: 1 column on smaller screens */
-@media (max-width: 900px){
-  .projects-grid{
-    display: grid; /* grid for consistent card layout */
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns on desktop */
+
+/* Mobile: stack project cards vertically */
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
   }
-  .project-media img:nth-child(1){
-    height: 260px; /* reduce tall image on mobile */
+
+  /* Keep each project card within the screen */
+  .project-card {
+    min-width: 0;
   }
-  .project-media img{
-    height: 140px; /* smaller thumbs on mobile */
+
+  /* Give the collage a little less padding */
+  .project-media {
+    gap: 6px;
+    padding: 10px;
+  }
+
+  /* Prevent thumbnails from stretching */
+  .project-media img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+  }
+
+  /* Larger image on the left */
+  .project-media img:nth-child(1) {
+    width: 100%;
+    height: 226px;
+    margin-top: 0;
+  }
+
+  /* Preserve your preferred card padding */
+  .project-body {
+    padding: 12px 24px;
+  }
+}
+
+/* Mobile: Stack all .split cards vertically on smaller screens */
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-section .split{
+    grid-template-columns: minmax(0, 1fr);      /* stacks for mobile */
   }
 }
 
