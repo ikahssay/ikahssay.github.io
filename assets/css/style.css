@@ -179,6 +179,7 @@ a:hover{ text-decoration:underline; }
   align-items: start;     
 }
 
+/* Profile picture container */
 .hero-image{
   aspect-ratio: 1 / 1;      /* locks width & height together */
   max-width: 270px;         /* controls how big the square can be */
@@ -202,10 +203,15 @@ a:hover{ text-decoration:underline; }
   will-change: transform;
 }
 
+/* Profile picture */
 .hero-image img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  position: absolute;
+  inset: 4px; /* Respect the container's 7px padding */
+
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  object-fit: cover; /* Crop without stretching */
+  object-position: center;
   border-radius: 14px;
   align-items:center;
   
@@ -878,7 +884,8 @@ h1{
 
   .navlinks a{
     white-space: nowrap;    /* never break link text */
-    font-size: 0.9rem;      /* small shrink to help fit */        
+    font-size: 0.9rem;      /* small shrink to help fit */      
+    flex: 0 0 auto; /* Prevent links from shrinking */ 
   }
 
   .navlinks .btn{
