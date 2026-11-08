@@ -867,10 +867,13 @@ h1{
     flex: 1 1 auto;                    /* links take remaining space */
     flex-wrap: nowrap;           /* prevent wrapping into a second line */
     overflow-x: auto;            /* if it doesn’t fit, scroll horizontally */
-    -webkit-overflow-scrolling: touch; /* smooth iOS scroll */
+    justify-content: flex-start; /* Start with with the first nav_item (ie, About), not the last (ie, Contact) */
+
+    -webkit-overflow-scrolling: touch; /* smooth scrolling on iPhone */
     gap: 6px;  /* tighter spacing so everything fits */
     white-space: nowrap;               /* keep all links in one line */
-    padding-bottom: 2px;               /* prevents iOS clipping */
+    /*padding-bottom: 2px;               /* prevents iOS clipping */
+
   }
 
   .navlinks a{
