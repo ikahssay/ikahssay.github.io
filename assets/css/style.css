@@ -810,7 +810,7 @@ h1{
 
   .hero-image{ 
     order: -1; /* Display image before the text */
-    min-height: 120px; /* optional: keep it compact */
+    min-height: 60px; /* optional: keep it compact */
     max-width: 140px;
     aspect-ratio: 1 / 1;
     justify-self: center;    /*keep it either in the center or on the right hand side*/  
@@ -868,7 +868,7 @@ h1{
     flex-wrap: nowrap;           /* prevent wrapping into a second line */
     overflow-x: auto;            /* if it doesn’t fit, scroll horizontally */
     -webkit-overflow-scrolling: touch; /* smooth iOS scroll */
-    gap: 10px;  /* tighter spacing so everything fits */
+    gap: 6px;  /* tighter spacing so everything fits */
     white-space: nowrap;               /* keep all links in one line */
     padding-bottom: 2px;               /* prevents iOS clipping */
   }
